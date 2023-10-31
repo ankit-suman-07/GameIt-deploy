@@ -1,38 +1,13 @@
-var http = require('http');
-var fs = require('fs');
+const express = require('express');
+const app = express();
 
-http.createServer(function (req, res) {
-    if (req.url === "/") {
-        fs.readFile("head.html", function (err, pgres) {
-            if (err) {
-                res.writeHead(404, { 'Content-Type': 'text/html' });
-                res.write("HEAD.HTML NOT FOUND");
-                res.end();
-            } else {
-                res.writeHead(200, { 'Content-Type': 'text/html' });
-                res.write(pgres);
-                res.end();
-            }
-        });
-    } else if (req.url === "/tailPage") {
-        fs.readFile("tail.html", function (err, pgres) {
-            if (err) {
-                res.writeHead(404, { 'Content-Type': 'text/html' });
-                res.write("TAIL.HTML NOT FOUND");
-                res.end();
-            } else {
-                res.writeHead(200, { 'Content-Type': 'text/html' });
-                res.write(pgres);
-                res.end();
-            }
-        });
-    } else {
-        // Handle other routes here, if needed
-        res.writeHead(404, { 'Content-Type': 'text/html' });
-        res.write("PAGE NOT FOUND");
-        res.end();
-    }
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
+});
 
-}).listen(4000, function () {
-    console.log("SERVER STARTED PORT: 4000");
+// Add more routes as needed
+
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
