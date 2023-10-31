@@ -46,6 +46,14 @@ app.get('/', (req, res) => {
     res.send("Working Users and Games");
 });
 
+app.get('/users', (req, res) => {
+    res.send("Users Displayed here");
+});
+
+app.get('/games', (req, res) => {
+    res.send("Games Displayed here");
+});
+
 app.listen(PORT, () => {
     console.log('Server is running on port ' + PORT);
 });

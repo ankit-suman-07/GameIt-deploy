@@ -35,7 +35,7 @@ game_router.post('/', async (request, response) => {
 });
 
 // Route to Get All Books from database
-game_router.get('/all', async (request, response) => {
+game_router.get('/', async (request, response) => {
     try {
         const games = await Game.find({});
         return response.status(200).json({

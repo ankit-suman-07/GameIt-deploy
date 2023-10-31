@@ -35,7 +35,7 @@ user_router.post('/', async (request, response) => {
 });
 
 // Route to Get All Books from database
-user_router.get('/all', async (request, response) => {
+user_router.get('/', async (request, response) => {
     try {
         const users = await User.find({});
         return response.status(200).json({
