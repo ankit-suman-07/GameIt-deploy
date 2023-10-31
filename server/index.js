@@ -9,6 +9,12 @@ app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
 
+// Handle requests for /favicon.ico
+app.get('/favicon.ico', (req, res) => {
+    // Serve your custom or default favicon here
+    res.status(200).sendFile('/');
+});
+
 app.get('/home', (req, res) => {
     res.send('Home Hello, World!');
 });
