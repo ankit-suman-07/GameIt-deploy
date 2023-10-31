@@ -1,27 +1,38 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors');
+
+const PORT = process.env.PORT || 5000
+
 const app = express();
-
-// Enable All CORS Requests
 app.use(cors());
+app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
+mongoose.connect("mongodb+srv://ankitsuman07:Silenced%408697@bookstore.cm8rbur.mongodb.net/books-collection?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
 
-// Handle requests for /favicon.ico
-app.get('/favicon.ico', (req, res) => {
-    // Serve your custom or default favicon here
-    res.status(200).sendFile('/');
+const Task = mongoose.model('Task', {
+    text: String
 });
 
-app.get('/home', (req, res) => {
-    res.send('Home Hello, World!');
+app.get('/', async (req, res) => {
+    res.send("Working Home");
 });
 
-// Add more routes as needed
+app.get('/tasks', async (req, res) => {
+    const tasks = await Task.find();
+    res.json(tasks);
+});
 
-const PORT = process.env.PORT || 4000;
+app.post('/tasks', async (req, res) => {
+    const task = new Task({ text: req.body.text });
+    await task.save();
+    res.json(task);
+});
+
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log('Server is running on port 5000');
+    //res.send('<h2>Page</h2>');
 });
