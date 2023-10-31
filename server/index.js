@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const userRoutes = require('./routes/userRoutes');
+const gameRoutes = require('./routes/gameRoutes');
 const cors = require('cors');
+
 
 const PORT = process.env.PORT || 5000
 
@@ -13,26 +16,36 @@ mongoose.connect("mongodb+srv://ankitsuman07:Silenced%408697@bookstore.cm8rbur.m
     useUnifiedTopology: true
 });
 
-const Task = mongoose.model('Task', {
-    text: String
-});
+//app.use('/games', gameRoutes);
 
-app.get('/', async (req, res) => {
-    res.send("Working Home");
-});
+// const Task = mongoose.model('Task', {
+//     text: String
+// });
 
-app.get('/tasks', async (req, res) => {
-    const tasks = await Task.find();
-    res.json(tasks);
-});
+// app.get('/', async (req, res) => {
+//     res.send("Working Home");
+// });
 
-app.post('/tasks', async (req, res) => {
-    const task = new Task({ text: req.body.text });
-    await task.save();
-    res.json(task);
+// app.get('/users', async (req, res) => {
+//     const tasks = await Task.find();
+//     res.json(tasks);
+// });
+
+// app.post('/users', async (req, res) => {
+//     const task = new Task({ text: req.body.text });
+//     await task.save();
+//     res.json(task);
+// });
+
+//Use userRoutes
+app.use('/users', userRoutes);
+app.use('/games', gameRoutes);
+
+
+app.get('/', (req, res) => {
+    res.send("Working Users and Games");
 });
 
 app.listen(PORT, () => {
-    console.log('Server is running on port 5000');
-    //res.send('<h2>Page</h2>');
+    console.log('Server is running on port ' + PORT);
 });
