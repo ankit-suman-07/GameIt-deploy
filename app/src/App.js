@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from 'axios';
 import './App.css';
+
+import Upload from './Upload';
+import UploadVid from './UploadVid';
+import VideoPlayer from './components/video-player/VideoPlayer';
+import VideoPlayers from './components/VP';
 
 function App() {
 
@@ -99,6 +105,23 @@ function App() {
       <button onClick={deleteUser} >Delete User</button>
       <button onClick={reedit} >Re-edit</button>
       <button onClick={display} >Display</button>
+      <div>
+        <h3>Video.js</h3>
+        <VideoPlayers />
+      </div>
+      <div>
+        <VideoPlayer />
+      </div>
+      <Router>
+        <Routes>
+          <Route path="/upload" element={<Upload />} />
+          <Route path="/uploadvid" element={<UploadVid />} />
+          {/* <Route path="/aboutme" element={<AboutMe />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} /> */}
+        </Routes>
+      </Router>
     </div>
   );
 }
