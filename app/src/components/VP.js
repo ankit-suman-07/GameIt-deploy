@@ -32,6 +32,9 @@ const VideoPlayers = () => {
                 className="video-js vjs-default-skin"
                 controls
             />
+            <div>
+
+            </div>
         </div>
     );
 };
