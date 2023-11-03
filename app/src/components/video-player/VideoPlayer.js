@@ -1,10 +1,23 @@
 import React, { useRef, useState } from 'react';
 
-const VideoPlayer = () => {
+const VideoPlayer = ({ low, mid, high }) => {
 
     const [videoVolume, setVideoVolume] = useState(100);
     const [vidDuration, setVidDuration] = useState(0);
     const [currentDuration, setCurrentDuration] = useState(0);
+    const [playURL, setPlayURL] = useState("");
+
+    const playLow = () => {
+        setPlayURL(low);
+    }
+
+    const playMid = () => {
+        setPlayURL(mid);
+    }
+
+    const playHigh = () => {
+        setPlayURL(high);
+    }
 
     const videoRef = useRef();
 
@@ -95,7 +108,7 @@ const VideoPlayer = () => {
             <div className='customVideoTagClass'>
 
                 <video ref={videoRef} preload='auto'>
-                    <source src='https://www.w3schools.com/html/mov_bbb.mp4' type='video/mp4'></source>
+                    <source src={playURL} type='video/mp4'></source>
                 </video>
             </div>
             <div className='customVideoTagControlsClass'>
@@ -115,6 +128,12 @@ const VideoPlayer = () => {
                 <button onClick={handleBackwardButton}>-10s</button><br />
                 <label><b>volume</b></label><input type='range' min="0" max="100" step='10' value={videoVolume} onChange={handleVolume} /><br /><br />
                 <label><b>Scrubbing Video</b></label><input type='range' min="0" max={vidDuration} value={currentDuration} onChange={videoDuration} />
+                <div>
+                    <button onClick={playLow} >Low</button>
+                    <button onClick={playMid} >Mid</button>
+                    <button onClick={playHigh} >High</button>
+
+                </div>
             </div>
         </>
     );

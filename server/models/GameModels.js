@@ -4,20 +4,70 @@ const gameSchema = mongoose.Schema(
     {
         name: {
             type: String,
-            required: true,
+            required: true
         },
-        email: {
+        company: {
             type: String,
-            required: true,
+            required: true
         },
-        password: {
+        year: {
             type: String,
-            required: true,
+            required: true
         },
-        type: {
+        genre: {
+            type: [String],
+            required: true
+        },
+        tags: {
+            type: [String],
+            required: true
+        },
+        price: {
+            type: Number,
+            required: true
+        },
+        rating: {
             type: String,
-            required: true,
+            required: true
         },
+        poster: {
+            type: String,
+            required: true
+        },
+        trailer: {
+            low: {
+                type: String,
+                required: true
+            },
+            mid: {
+                type: String,
+                required: true
+            },
+            high: {
+                type: String,
+                required: true
+            }
+        },
+        screenshots: {
+            type: [String],
+            required: true
+        },
+        summary: {
+            type: String,
+            required: true
+        },
+        reviews: {
+            type: Map,
+            of: [String]
+        },
+        console: {
+            type: [String],
+            required: true
+        },
+        likes: {
+            type: Number,
+            default: 0,
+        }
 
     },
 );

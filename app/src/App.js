@@ -7,6 +7,7 @@ import Upload from './Upload';
 import UploadVid from './UploadVid';
 import VideoPlayer from './components/video-player/VideoPlayer';
 import VideoPlayers from './components/VP';
+import VideoUploader from './components/video-uploader/VideoUploader';
 
 function App() {
 
@@ -111,6 +112,9 @@ function App() {
       </div>
       <div>
         <VideoPlayer />
+      </div>
+      <div>
+        <VideoUploader />
       </div>
       <Router>
         <Routes>

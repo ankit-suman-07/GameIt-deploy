@@ -1,17 +1,34 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import videojs from 'video.js';
 import 'video.js/dist/video-js.css';
 import 'videojs-contrib-quality-levels';
 
-const VideoPlayers = () => {
+const VideoPlayers = ({ low, mid, high }) => {
     const videoRef = useRef(null);
+
+    const [playURL, setPlayURL] = useState("");
+
+    const playLow = () => {
+        setPlayURL(low);
+    }
+
+    const playMid = () => {
+        setPlayURL(mid);
+    }
+
+    const playHigh = () => {
+        setPlayURL(high);
+    }
+
+
 
     useEffect(() => {
         const player = videojs(videoRef.current, {
-            techOrder: ['html5', 'flash'], // Specify preferred tech order
+            techOrder: ['html5'], // Specify preferred tech order
             sources: [
                 {
-                    src: 'http://res.cloudinary.com/dczpi1rh4/video/upload/v1698870386/jteyknzewggijxurjnv0.mp4',
+                    //src: 'http://res.cloudinary.com/dczpi1rh4/video/upload/v1698870386/jteyknzewggijxurjnv0.mp4',
+                    src: playURL,
                     type: 'video/mp4',
                 },
             ],
@@ -20,9 +37,11 @@ const VideoPlayers = () => {
         player.qualityLevels(); // Enable quality levels plugin
 
         return () => {
-            //player.dispose(); // Clean up the player when the component is unmounted
+            if (player) {
+                player.dispose();
+            }
         };
-    }, []); // Empty dependency array ensures this effect runs once after initial render
+    }, [playURL]); // Empty dependency array ensures this effect runs once after initial render
 
     return (
         <div>
@@ -33,6 +52,9 @@ const VideoPlayers = () => {
                 controls
             />
             <div>
+                <button onClick={playLow} >Low</button>
+                <button onClick={playMid} >Mid</button>
+                <button onClick={playHigh} >High</button>
 
             </div>
         </div>
