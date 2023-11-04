@@ -9,7 +9,7 @@ const CreateUser = () => {
 
     const handleCreateUser = () => {
         axios
-            .post('https://server-gameit.onrender.com/games', {
+            .post('http://localhost:5000/games', {
                 name: name,
                 company: company,
                 year: year,

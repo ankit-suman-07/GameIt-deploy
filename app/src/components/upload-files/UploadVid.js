@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const UploadVid = () => {
+const UploadVid = ({ setTrailer }) => {
 
     const [video, setVideoSelected] = useState([]);
-    const [vidUrl, setVidUrl] = useState("");
+    //const [vidUrl, setVidUrl] = useState("");
     const [perc, setPerc] = useState("");
 
     const uploadVideo = () => {
@@ -21,7 +21,8 @@ const UploadVid = () => {
             .then((response) => {
                 console.log(response);
                 console.log(response.data.url);
-                setVidUrl(response.data.url);
+                //setVidUrl(response.data.url);
+                setTrailer(response.data.url);
             })
             .catch((error) => {
                 console.error("Error uploading video: ", error);
@@ -29,7 +30,6 @@ const UploadVid = () => {
     }
     return (
         <div>
-            Cloudinary
             <div>
                 <input
                     type='file'
@@ -42,12 +42,7 @@ const UploadVid = () => {
                 {perc + "%"}
             </div>
             <div>
-                <video
-                    src={vidUrl}
-                    type="video/mp4"
-                    controls
-                    autoPlay
-                />
+
             </div>
         </div>
     )

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Upload = () => {
+const Upload = ({ setImage }) => {
 
     const [imageSelected, setImageSelected] = useState([]);
-    const [imgUrl, setImgUrl] = useState("");
+    //const [imgUrl, setImgUrl] = useState("");
 
     const uploadImage = () => {
         const formData = new FormData();
@@ -14,7 +14,8 @@ const Upload = () => {
             .then((response) => {
                 console.log(response);
                 console.log(response.data.url);
-                setImgUrl(response.data.url);
+                //setImgUrl(response.data.url);
+                setImage(response.data.url);
             })
     }
 
@@ -30,11 +31,7 @@ const Upload = () => {
                     }} />
                 <button onClick={uploadImage} >Upload Image</button>
             </div>
-            <div>
-                <img src={imgUrl}
-                    alt="cloudinary"
-                />
-            </div>
+
         </div>
     )
 }

@@ -30,15 +30,7 @@ const gameSchema = mongoose.Schema(
             type: String
         },
         trailer: {
-            low: {
-                type: String
-            },
-            mid: {
-                type: String
-            },
-            high: {
-                type: String
-            }
+            type: [String]
         },
         screenshots: {
             type: [String]
@@ -50,7 +42,7 @@ const gameSchema = mongoose.Schema(
             type: Map,
             of: [String]
         },
-        console: {
+        consoleDevice: {
             type: [String]
         },
         likes: {

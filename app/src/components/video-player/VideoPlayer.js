@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import "./VideoPlayer.css";
 
-const VideoPlayer = ({ low, mid, high, thumbnail, screenshots }) => {
+const VideoPlayer = ({ low, mid, high }) => {
 
     const [playURL, setPlayURL] = useState(high);
 

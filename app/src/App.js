@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //import axios from 'axios';
 import './App.css';
 
-import Upload from './Upload';
-import UploadVid from './UploadVid';
+import Upload from './components/upload-files/Upload';
+import UploadVid from './components/upload-files/UploadVid';
 // import VideoPlayer from './components/video-player/VideoPlayer';
 // import VideoPlayers from './components/VP';
 // import VideoUploader from './components/video-uploader/VideoUploader';
