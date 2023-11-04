@@ -14,6 +14,7 @@ import Home from './pages/home/Home';
 import HomeStudio from './pages/studio-home/HomeStudio';
 import StudioShowGame from './pages/studio-home/studio-games/studio-show/StudioShowGame';
 import StudioCreateGame from './pages/studio-home/studio-games/studio-create/StudioCreateGame';
+import CreateUser from './CreateUser';
 
 function App() {
 
@@ -130,6 +131,7 @@ function App() {
           <Route path="/games/create" element={<StudioCreateGame />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/uploadvid" element={<UploadVid />} />
+          <Route path="/abc" element={<CreateUser />} />
           {/* <Route path="/aboutme" element={<AboutMe />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/blog" element={<Blog />} />

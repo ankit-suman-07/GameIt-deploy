@@ -15,54 +15,43 @@ const gameSchema = mongoose.Schema(
             required: true
         },
         genre: {
-            type: [String],
-            required: true
+            type: [String]
         },
         tags: {
-            type: [String],
-            required: true
+            type: [String]
         },
         price: {
-            type: Number,
-            required: true
+            type: Number
         },
         rating: {
-            type: String,
-            required: true
+            type: String
         },
         poster: {
-            type: String,
-            required: true
+            type: String
         },
         trailer: {
             low: {
-                type: String,
-                required: true
+                type: String
             },
             mid: {
-                type: String,
-                required: true
+                type: String
             },
             high: {
-                type: String,
-                required: true
+                type: String
             }
         },
         screenshots: {
-            type: [String],
-            required: true
+            type: [String]
         },
         summary: {
-            type: String,
-            required: true
+            type: String
         },
         reviews: {
             type: Map,
             of: [String]
         },
         console: {
-            type: [String],
-            required: true
+            type: [String]
         },
         likes: {
             type: Number,

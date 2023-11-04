@@ -4,30 +4,28 @@ const Game = require('../models/GameModels');
 
 const game_router = express.Router();
 
-// Route to save a book
+// Route to save a game
 game_router.post('/', async (request, response) => {
     try {
-        if (
-            !request.body.name ||
-            !request.body.company ||
-            !request.body.year 
-        ) {
+        const { name, company, year } = request.body;
+
+        if (!name || !company || !year) {
             return response.status(400).send({
-                message: 'Send all required fields: title, author, publishYear',
+                message: 'Send all required fields: name, company, year',
             });
         }
+
         const newGame = {
-            name: request.body.name,
-            name: request.body.name,
-            year: request.body.year,
+            name,
+            company,
+            year,
         };
 
         const game = await Game.create(newGame);
 
         return response.status(201).send(game);
-
     } catch (error) {
-        console.log(error.response);
+        console.log(error);
         response.status(500).send({ message: error.message });
     }
 });

@@ -24,6 +24,7 @@ user_router.post('/', async (request, response) => {
             type: request.body.type
         };
 
+
         const user = await User.create(newUser);
 
         return response.status(201).send(user);

@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-// import { useSnackbar } from 'notistack';
 
-import StudioNav from '../../../../components/studio-navbar/StudioNav';
-
-const StudioCreateGame = () => {
+const CreateUser = () => {
     const [name, setName] = useState('');
     const [company, setCompany] = useState('');
     const [year, setYear] = useState('');
@@ -13,7 +9,7 @@ const StudioCreateGame = () => {
 
     const handleCreateUser = () => {
         axios
-            .post('http://localhost:5000/games', {
+            .post('https://server-gameit.onrender.com/games', {
                 name: name,
                 company: company,
                 year: year,
@@ -52,4 +48,4 @@ const StudioCreateGame = () => {
     );
 };
 
-export default StudioCreateGame
+export default CreateUser;
