@@ -6,7 +6,7 @@ import "./HomeStudio.css";
 import StudioGamesCard from './studio-games/StudioGamesCard';
 import StudioNav from '../../components/studio-navbar/StudioNav';
 
-import Logo from "../../assets/logo.png";
+//import Logo from "../../assets/logo.png";
 import GameLogo from "../../assets/game-logo.png";
 
 const HomeStudio = () => {

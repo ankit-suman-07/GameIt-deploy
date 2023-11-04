@@ -9,9 +9,8 @@ game_router.post('/', async (request, response) => {
     try {
         if (
             !request.body.name ||
-            !request.body.email ||
-            !request.body.password ||
-            !request.body.type
+            !request.body.company ||
+            !request.body.year 
         ) {
             return response.status(400).send({
                 message: 'Send all required fields: title, author, publishYear',
@@ -19,9 +18,8 @@ game_router.post('/', async (request, response) => {
         }
         const newGame = {
             name: request.body.name,
-            email: request.body.email,
-            password: request.body.password,
-            type: request.body.type
+            name: request.body.name,
+            year: request.body.year,
         };
 
         const game = await Game.create(newGame);
