@@ -68,12 +68,14 @@ const HomeStudio = () => {
                             Total Reviews
                         </div>
                         <div className='studio-grid-content' >
-                            1250
+                            12
                         </div>
                     </div>
                     <div className='studio-grid-item' >
                         <div className='studio-grid-head' >
-                            Add a Game
+                            <Link to={'/games/create'}>
+                                Add a Game
+                            </Link>
                         </div>
                         <div className='studio-grid-content' >
 

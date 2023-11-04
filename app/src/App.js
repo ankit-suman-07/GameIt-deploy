@@ -13,6 +13,7 @@ import UploadVid from './UploadVid';
 import Home from './pages/home/Home';
 import HomeStudio from './pages/studio-home/HomeStudio';
 import StudioShowGame from './pages/studio-home/studio-games/studio-show/StudioShowGame';
+import StudioCreateGame from './pages/studio-home/studio-games/studio-create/StudioCreateGame';
 
 function App() {
 
@@ -126,6 +127,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/homestudio" element={<HomeStudio />} />
           <Route path="/games/details/:id" element={<StudioShowGame />} />
+          <Route path="/games/create" element={<StudioCreateGame />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/uploadvid" element={<UploadVid />} />
           {/* <Route path="/aboutme" element={<AboutMe />} />
