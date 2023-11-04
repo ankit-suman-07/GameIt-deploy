@@ -1,0 +1,32 @@
+.studiogamescard-outer {
+    max-width: 250px;
+}
+
+.studio-games-poster {
+    height: 300px;
+}
+
+.studio-games-poster img {
+    border: 2px solid #ffff;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.studio-games-title {
+    color: white;
+    margin-top: 5px;
+    text-align: left;
+}
+
+@media(max-width:900px) {
+    .studio-games-poster {
+        height: 250px;
+    }
+}
+
+@media(max-width:700px) {
+    .studio-games-poster {
+        height: 250px;
+    }
+}

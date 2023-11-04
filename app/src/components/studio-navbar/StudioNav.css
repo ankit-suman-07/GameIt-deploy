@@ -1,0 +1,40 @@
+nav {
+    height: 70px;
+    border-bottom: 1px solid #ffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.studiohome-logo {
+    height: 100%;
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.studiohome-logo img {
+    height: 60px;
+    width: 60px;
+}
+
+.studiohome-name {
+    color: #ffff;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.studio-welcome {
+    color: #ffff;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.studio-welcome span {
+    margin: 10px;
+    font-weight: 600;
+}

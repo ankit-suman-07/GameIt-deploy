@@ -1,0 +1,29 @@
+.videoplayer-outer {
+    width: 100%;
+    background-color: #000000;
+}
+
+.videoplayer-outer video {
+    width: 100%;
+}
+
+.videoplayer-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.videoplayer-btn {
+    display: flex;
+}
+
+.videoplayer-controls button,
+.videoplayer-btn button {
+    font-size: 10px;
+    background: none;
+    color: #ffff;
+    border: 2px solid #ffff;
+    border-radius: 2px;
+    margin: 2px;
+    padding: 5px;
+}

@@ -1,0 +1,194 @@
+.studioshowgame-outer {
+    color: #ffff;
+}
+
+.studioshowgame-header {
+    margin: 30px 200px;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.studioshowgame-main {
+    margin: 20px 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.studioshowgame-trailer {
+    border: 2px solid white;
+    border-radius: 2px;
+}
+
+.screenshots-header {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.studioshowgame-screenshots-img {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+
+}
+
+.studioshowgame-screenshots-img img {
+    width: 100%;
+    border: 2px solid #ffff;
+}
+
+.description-header {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: left;
+    margin: 40px 0 10px;
+}
+
+.studioshowgame-description {
+    max-height: 125px;
+    text-align: justify;
+    font-size: 12px;
+    letter-spacing: 1px;
+    overflow-y: auto;
+}
+
+.studioshowgame-description::-webkit-scrollbar {
+    width: 0px;
+}
+
+.studioshowgame-section {
+    margin: 20px 200px;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 10px;
+}
+
+.studioshowgame-section-misc,
+.studioshowgame-section-reviews {
+    max-height: 400px;
+
+}
+
+.studioshowgame-section-reviews-header {
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.studioshowgame-review {
+    margin: 10px 0 10px 0;
+    background-color: gray;
+    padding: 5px;
+}
+
+.studioshowgame-review-id {
+    text-align: left;
+    font-size: 12px;
+    color: red;
+    font-weight: 600;
+}
+
+.studioshowgame-review-text {
+    background-color: #ffff;
+    color: #222222;
+    margin: 5px;
+    margin-left: 20px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.studioshowgame-info {
+    text-align: left;
+}
+
+.studioshowgame-info span {
+    border: 2px solid #ffff;
+    margin-right: 10px;
+    padding: 5px;
+    font-size: 12px;
+    border-radius: 2px;
+}
+
+.studioshowgame-info-multiple {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.studioshowgame-box {
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.studioshowgame-box-head {
+    text-align: left;
+    margin-top: 30px;
+}
+
+.studioshowgame-box span {
+    border: 2px solid #ffff;
+    background-color: #ffff;
+    color: #222222;
+    margin: 10px;
+
+    border-radius: 2px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+@media(max-width:900px) {
+    .studioshowgame-header {
+        margin: 20px;
+    }
+
+    .studioshowgame-main {
+        margin: 20px;
+        grid-template-columns: 1fr;
+    }
+
+    .studioshowgame-section {
+        margin: 20px;
+    }
+
+    .studioshowgame-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:600px) {
+    .studioshowgame-screenshots-img {
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .studioshowgame-info-multiple {
+        grid-template-columns: 1fr;
+    }
+
+    .studioshowgame-box-head {
+        margin: auto 10px auto 10px;
+    }
+
+    .studioshowgame-box {
+        flex-direction: row;
+    }
+
+    .studioshowgame-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+    }
+}
