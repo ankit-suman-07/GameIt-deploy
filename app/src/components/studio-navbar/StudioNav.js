@@ -1,9 +1,11 @@
-import React from 'react';
+import { React, useContext } from 'react';
 import "./StudioNav.css";
+import { UserContext } from '../../context/UserContext';
 
 import Logo from "../../assets/logo.png";
 
 const StudioNav = () => {
+    const { user } = useContext(UserContext);
     return (
         <nav>
             <div className='studiohome-logo' >
@@ -13,7 +15,7 @@ const StudioNav = () => {
                 </div>
             </div>
             <div className='studio-welcome' >
-                Welcome, <span>Studio name</span>
+                Welcome, <span>{user.name}</span>
             </div>
         </nav>
 

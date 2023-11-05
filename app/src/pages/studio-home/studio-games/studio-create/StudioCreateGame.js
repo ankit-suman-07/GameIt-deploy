@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 // import { useSnackbar } from 'notistack';
 import "./StudioCreateGame.css";
@@ -7,6 +7,8 @@ import StudioNav from '../../../../components/studio-navbar/StudioNav';
 import Upload from '../../../../components/upload-files/Upload';
 import UploadVid from '../../../../components/upload-files/UploadVid';
 import VideoPlayer from '../../../../components/video-player/VideoPlayer';
+
+import { UserContext } from '../../../../context/UserContext';
 
 const StudioCreateGame = () => {
     const [name, setName] = useState('');
@@ -27,6 +29,8 @@ const StudioCreateGame = () => {
     const [consoleDevice, setConsole] = useState([]);
     const [selectedConsole, setSelectedConsole] = useState([]);
     //const [type, setType] = useState('');
+
+    const { user } = useContext(UserContext);
 
     const handleGenreChange = (e) => {
         setSelectedGenre(e.target.value); // Update selected genre when user selects an option
@@ -108,7 +112,7 @@ const StudioCreateGame = () => {
             </div>
             <div>
                 <label>Company:</label>
-                <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} />
+                <input type="text" value={user.name} disabled onChange={(e) => setCompany(e.target.value)} />
             </div>
             <div>
                 <label>Year:</label>

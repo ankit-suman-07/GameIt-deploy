@@ -98,7 +98,7 @@ const StudioEditGame = () => {
                 alert('An error occured. Please check the console.');
                 console.log(error);
             })
-    }, [])
+    }, [id])
 
     const handleEditUser = () => {
         const sendData = {

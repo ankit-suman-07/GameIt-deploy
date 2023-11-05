@@ -18,6 +18,31 @@ const userSchema = mongoose.Schema(
             type: String,
             required: true,
         },
+        profile: {
+            type: String,
+        },
+        saved: {
+            type: [String],
+        },
+        playing: {
+            type: [String],
+        },
+        bought: {
+            type: [String],
+        },
+        likes: {
+            type: [String],
+        },
+        reviews: {
+            type: Map,
+            of: [String]
+        },
+        notifications: {
+            type: [String],
+        },
+        warnings: {
+            type: [String],
+        },
 
     },
 );

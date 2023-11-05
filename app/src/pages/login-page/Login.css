@@ -1,0 +1,138 @@
+.login-outer {
+    width: 100vw;
+    height: 100vh;
+}
+
+.login-outer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.login-box-outer {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box {
+    border: 2px solid #ffff;
+    border-radius: 5px;
+    background-color: #000123;
+    max-width: 350px;
+    color: white;
+}
+
+.login-box-header {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px;
+}
+
+.login-error {
+    text-align: center;
+    font-size: 12px;
+    color: #B50702;
+    font-weight: 600;
+}
+
+.login-inner {
+    /* border: 2px solid white; */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mid-text {
+    margin-top: 10px;
+    font-size: 10px;
+}
+
+.login-inner img {
+    border: 2px solid white;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    width: 10%;
+    filter: grayscale(100%);
+    transition: all 0.3s;
+}
+
+.login-inner img:hover {
+    cursor: pointer;
+    background-color: #ffff;
+    filter: grayscale(0%);
+}
+
+.login-inner input {
+    border-radius: 2px;
+    border: none;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.login-inner button {
+    background-color: #B50702;
+    border: 2px solid white;
+    color: #ffff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 10px;
+    width: 60%;
+    padding: 10px;
+    transition: all 0.3s;
+}
+
+.login-inner button:hover {
+    cursor: pointer;
+    background-color: #ffff;
+    color: #B50702;
+}
+
+.login-inner {
+    font-size: 10px;
+    margin: 10px;
+}
+
+.login-inner-signup {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.login-inner-signup:hover {
+    color: #B50702;
+    font-weight: 800;
+}
+
+.new-user-btn {
+    background-color: #B50702;
+    border: 2px solid white;
+    color: #ffff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 10px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.new-user-btn:hover {
+    cursor: pointer;
+    background-color: #ffff;
+    color: #B50702;
+}

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import "./HomeStudio.css";
 
+//import { UserContext } from '../../context/UserContext';
+
 import StudioGamesCard from './studio-games/StudioGamesCard';
 import StudioNav from '../../components/studio-navbar/StudioNav';
 
@@ -12,6 +14,7 @@ import GameLogo from "../../assets/game-logo.png";
 const HomeStudio = () => {
 
     const [games, setGames] = useState(null);
+    //const { user, updateUser } = useContext(UserContext);
 
     useEffect(() => {
         //setLoading(true);

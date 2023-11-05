@@ -7,30 +7,34 @@ const user_router = express.Router();
 // Route to save a book
 user_router.post('/', async (request, response) => {
     try {
-        if (
-            !request.body.name ||
-            !request.body.email ||
-            !request.body.password ||
-            !request.body.type
-        ) {
+        const { name, email, password, type, profile, saved, playing, bought, likes, reviews, notifications, warnings } = request.body;
+
+        if (!name || !email || !password || !type) {
             return response.status(400).send({
-                message: 'Send all required fields: title, author, publishYear',
+                message: 'Send all required fields: name, company, year, genre, tags, price, rating, poster, trailer, screenshots, summary, consoleDevice',
             });
         }
-        const newUser = {
-            name: request.body.name,
-            email: request.body.email,
-            password: request.body.password,
-            type: request.body.type
-        };
 
+        const newUser = {
+            name,
+            email,
+            password,
+            type,
+            profile,
+            saved,
+            playing,
+            bought,
+            likes,
+            reviews,
+            notifications,
+            warnings
+        };
 
         const user = await User.create(newUser);
 
         return response.status(201).send(user);
-
     } catch (error) {
-        console.log(error.response);
+        console.log(error);
         response.status(500).send({ message: error.message });
     }
 });
@@ -51,6 +55,19 @@ user_router.get('/', async (request, response) => {
 
 // Route to Get 1 Book from database by id
 user_router.get('/:id', async (request, response) => {
+    try {
+        const { id } = request.params;
+
+        const user = await User.findById(id);
+        return response.status(200).json(user);
+    } catch (error) {
+        console.log(error.response);
+        response.status(500).send({ message: error.message });
+    }
+});
+
+// Route to Get 1 Book from database by id
+user_router.get('/:email', async (request, response) => {
     try {
         const { id } = request.params;
 
