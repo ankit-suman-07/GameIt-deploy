@@ -1,7 +1,6 @@
 import React from 'react';
 import "./StudioGamesCard.css";
 
-import DemoPoster from "../../../assets/superhero.jpg";
 
 const StudioGamesCard = ({ poster, alt, title }) => {
     return (

@@ -23,6 +23,9 @@ const gameSchema = mongoose.Schema(
         price: {
             type: Number
         },
+        sold: {
+            type: Number
+        },
         rating: {
             type: String
         },

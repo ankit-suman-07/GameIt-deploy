@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 // import { useSnackbar } from 'notistack';
-import "./StudioCreateGame.css";
 
 import StudioNav from '../../../../components/studio-navbar/StudioNav';
 import Upload from '../../../../components/upload-files/Upload';
 import UploadVid from '../../../../components/upload-files/UploadVid';
 import VideoPlayer from '../../../../components/video-player/VideoPlayer';
 
-const StudioCreateGame = () => {
+const StudioEditGame = () => {
     const [name, setName] = useState('');
     const [company, setCompany] = useState('');
     const [year, setYear] = useState('');
@@ -17,16 +17,19 @@ const StudioCreateGame = () => {
     const [tags, setTags] = useState([]);
     const [selectedTag, setSelectedTag] = useState('');
     const [price, setPrice] = useState(0);
+    const [sold, setSold] = useState(0);
     const [rating, setRating] = useState("");
     const [poster, setPoster] = useState("");
     const [trailer, setTrailer] = useState(""); //To be modified
     const [screenshots, setScreenshots] = useState([]);
 
     const [summary, setSummary] = useState("");
-    //const [reviews, setReviews] = useState({});
+    const [reviews, setReviews] = useState({});
     const [consoleDevice, setConsole] = useState([]);
     const [selectedConsole, setSelectedConsole] = useState([]);
-    //const [type, setType] = useState('');
+    const [likes, setLikes] = useState(0);
+
+    const { id } = useParams();
 
     const handleGenreChange = (e) => {
         setSelectedGenre(e.target.value); // Update selected genre when user selects an option
@@ -67,7 +70,37 @@ const StudioCreateGame = () => {
         }
     };
 
-    const handleCreateUser = () => {
+    useEffect(() => {
+        //setLoading(true);
+        axios
+            .get(`http://localhost:5000/games/${id}`)
+            .then((response) => {
+                console.log(id);
+                setName(response.data.name);
+                setCompany(response.data.company);
+                setYear(response.data.year);
+                setGenre(response.data.genre);
+                setTags(response.data.tags);
+                setPrice(response.data.price);
+                setSold(response.data.sold);
+                setRating(response.data.rating);
+                setPoster(response.data.poster);
+                setTrailer(response.data.trailer);
+                setScreenshots(response.data.screenshots);
+                setSummary(response.data.summary);
+                setReviews(response.data.reviews);
+                setConsole(response.data.consoleDevice);
+                setLikes(response.data.likes);
+                console.log(response.data);
+            })
+            .catch((error) => {
+                //setLoading(false);
+                alert('An error occured. Please check the console.');
+                console.log(error);
+            })
+    }, [])
+
+    const handleEditUser = () => {
         const sendData = {
             name,
             company,
@@ -75,18 +108,18 @@ const StudioCreateGame = () => {
             genre,
             tags,
             price,
-            sold: 0,
+            sold,
             rating,
             poster,
             trailer,
             screenshots,
             summary,
-            reviews: {},
+            reviews,
             consoleDevice,
-            likes: 0
+            likes
         };
         axios
-            .post('http://localhost:5000/games', sendData)
+            .put(`http://localhost:5000/games/${id}`, sendData)
             .then((response) => {
                 console.log('User created successfully:', response.data);
                 console.log(sendData);
@@ -209,9 +242,9 @@ const StudioCreateGame = () => {
                 </div>
             </div>
 
-            <button onClick={handleCreateUser}>Create User</button>
+            <button onClick={handleEditUser}>Edit User</button>
         </div>
     );
 };
 
-export default StudioCreateGame
+export default StudioEditGame

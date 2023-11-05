@@ -115,7 +115,7 @@ const game_router = express.Router();
 // Route to save a game
 game_router.post('/', async (request, response) => {
     try {
-        const { name, company, year, genre, tags, price, rating, poster, trailer, screenshots, summary, consoleDevice } = request.body;
+        const { name, company, year, genre, tags, price, sold, rating, poster, trailer, screenshots, summary, reviews, consoleDevice } = request.body;
 
         if (!name || !company || !year || !genre || !tags || !price || !rating || !poster || !trailer || !screenshots || !summary || !consoleDevice) {
             return response.status(400).send({
@@ -130,12 +130,15 @@ game_router.post('/', async (request, response) => {
             genre,
             tags,
             price,
+            sold,
             rating,
             poster,
             trailer,
             screenshots,
             summary,
+            reviews,
             consoleDevice
+
         };
 
         const game = await Game.create(newGame);

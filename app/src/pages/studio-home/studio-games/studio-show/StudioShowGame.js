@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import "./StudioShowGame.css";
 import StudioNav from '../../../../components/studio-navbar/StudioNav';
@@ -13,7 +13,7 @@ const StudioShowGame = () => {
     useEffect(() => {
         //setLoading(true);
         axios
-            .get(`https://server-gameit.onrender.com/games/${id}`)
+            .get(`http://localhost:5000/games/${id}`)
             .then((response) => {
                 setGame(response.data);
                 console.log(response.data);
@@ -29,10 +29,7 @@ const StudioShowGame = () => {
         return <div>Loading...</div>; // Display loading message while fetching data
     }
 
-    // Check if 'game' object has the expected properties before accessing them
-    if (!game.name || !game.company) {
-        return <div>Error: Invalid Data</div>; // Handle unexpected data structure
-    }
+
 
     return (
         <div className='studioshowgame-outer' >
@@ -43,9 +40,9 @@ const StudioShowGame = () => {
             <div className='studioshowgame-main' >
                 <div className='studioshowgame-trailer' >
                     <VideoPlayer
-                        low={game.trailer.low}
-                        mid={game.trailer.mid}
-                        high={game.trailer.high}
+                        low={game.trailer}
+                        mid={game.trailer}
+                        high={game.trailer}
                         thumbnail={game.thumbnail}
                         screenshots={game.screenshots}
                     />
@@ -59,7 +56,7 @@ const StudioShowGame = () => {
 
 
                         {
-                            (game.screenshots).map((screenshot) => {
+                            game.screenshots && (game.screenshots).map((screenshot) => {
                                 return (
                                     <img src={screenshot} alt='screenshot' />
                                 );
@@ -86,6 +83,9 @@ const StudioShowGame = () => {
                         <span>Year : {game.year}</span>
                         <span>Price : ${game.price}</span>
                         <span>Rating : {game.rating}</span>
+                        <Link to={`/games/edit/${game._id}`}>
+                            <span>Edit Game Details</span>
+                        </Link>
                     </div>
                     <div className='studioshowgame-info-multiple' >
                         <div className='studioshowgame-box' >
@@ -93,7 +93,7 @@ const StudioShowGame = () => {
                                 Genre
                             </div>
                             {
-                                (game.genre).map((item, idx) => {
+                                game.genre && (game.genre).map((item, idx) => {
                                     return (
                                         <span key={idx} >{item}</span>
                                     );
@@ -105,7 +105,7 @@ const StudioShowGame = () => {
                                 Tags
                             </div>
                             {
-                                (game.tags).map((item, idx) => {
+                                game.tags && (game.tags).map((item, idx) => {
                                     return (
                                         <span key={idx} >{item}</span>
                                     );
@@ -117,7 +117,7 @@ const StudioShowGame = () => {
                                 Consoles
                             </div>
                             {
-                                (game.console).map((item, idx) => {
+                                game.console && (game.console).map((item, idx) => {
                                     return (
                                         <span key={idx} >{item}</span>
                                     );
@@ -130,7 +130,8 @@ const StudioShowGame = () => {
                     <div className='studioshowgame-section-reviews-header' >
                         User Reviews
                     </div>
-                    {Object.keys(game.reviews).map(reviewId => (
+                    {
+                        game.reviews && Object.keys(game.reviews).map(reviewId => (
                         <div key={reviewId} className='studioshowgame-review' >
                             <div className='studioshowgame-review-id' >
                                 {reviewId}
