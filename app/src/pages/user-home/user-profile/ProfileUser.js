@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 //import "./ProfileUser.css";
 import Navbar from '../../../components/user-navbar/UserNav';
 import ProfileCard from '../../../components/profile-card/ProfileCard';
@@ -6,7 +6,11 @@ import GameSlider from '../../../components/game-slider/GameSlider';
 
 import EmptyImg from "../../../assets/empty.png";
 
+import { UserContext } from '../../../context/UserContext';
+
 const ProfileUser = () => {
+    const { user } = useContext(UserContext);
+
     const playing = false;
     const saved = true;
     const bought = false;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "./HomeStudio.css";
 
@@ -29,7 +29,12 @@ const HomeStudio = () => {
         return allReviews.length;
     }
 
+    const navigate = useNavigate();
+
     useEffect(() => {
+        if (!user.email) {
+            navigate('/');
+        }
         axios
             .get('http://localhost:5000/games')
             .then((response) => {
