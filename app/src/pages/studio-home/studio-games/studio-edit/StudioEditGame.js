@@ -28,8 +28,16 @@ const StudioEditGame = () => {
     const [consoleDevice, setConsole] = useState([]);
     const [selectedConsole, setSelectedConsole] = useState([]);
     const [likes, setLikes] = useState(0);
+    const [plan, setPlan] = useState(0);
 
     const { id } = useParams();
+
+    const genre_tags = [
+        "Action", "RPG", "ActionAdventure", "Adventure", "SuperHero",
+        "Casual", "Fighting", "Horror", "Platformer", "Racing",
+        "Shooter", "Simulator", "Sports", "Strategy"
+
+    ];
 
     const handleGenreChange = (e) => {
         setSelectedGenre(e.target.value); // Update selected genre when user selects an option
@@ -91,6 +99,7 @@ const StudioEditGame = () => {
                 setReviews(response.data.reviews);
                 setConsole(response.data.consoleDevice);
                 setLikes(response.data.likes);
+                setPlan(response.data.plan);
                 console.log(response.data);
             })
             .catch((error) => {
@@ -116,7 +125,8 @@ const StudioEditGame = () => {
             summary,
             reviews,
             consoleDevice,
-            likes
+            likes,
+            plan
         };
         axios
             .put(`http://localhost:5000/games/${id}`, sendData)
@@ -152,10 +162,11 @@ const StudioEditGame = () => {
 
                 <select onChange={handleGenreChange}>
                     <option value="">Select Genre</option>
-                    <option value="Action">Action</option>
-                    <option value="Adventure">Adventure</option>
-                    <option value="RPG">RPG</option>
-                    {/* Add more genre options as needed */}
+                    {
+                        genre_tags.map((item, idx) => {
+                            return <option key={idx} value={item}>{item}</option>
+                        })
+                    }
                 </select>
                 <button onClick={addGenre}>Add Genre</button>
                 <div>

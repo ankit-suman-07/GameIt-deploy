@@ -14,7 +14,7 @@ const userSchema = mongoose.Schema(
             type: String,
             required: true,
         },
-        type: {
+        usertype: {
             type: String,
             required: true,
         },
@@ -43,7 +43,9 @@ const userSchema = mongoose.Schema(
         warnings: {
             type: [String],
         },
-
+        plan: {
+            type: String,
+        }
     },
 );
 

@@ -7,9 +7,9 @@ const user_router = express.Router();
 // Route to save a book
 user_router.post('/', async (request, response) => {
     try {
-        const { name, email, password, type, profile, saved, playing, bought, likes, reviews, notifications, warnings } = request.body;
+        const { name, email, password, usertype, profile, saved, playing, bought, likes, reviews, notifications, warnings, plan } = request.body;
 
-        if (!name || !email || !password || !type) {
+        if (!name || !email || !password || !usertype) {
             return response.status(400).send({
                 message: 'Send all required fields: name, company, year, genre, tags, price, rating, poster, trailer, screenshots, summary, consoleDevice',
             });
@@ -19,7 +19,7 @@ user_router.post('/', async (request, response) => {
             name,
             email,
             password,
-            type,
+            usertype,
             profile,
             saved,
             playing,
@@ -27,7 +27,8 @@ user_router.post('/', async (request, response) => {
             likes,
             reviews,
             notifications,
-            warnings
+            warnings,
+            plan
         };
 
         const user = await User.create(newUser);
@@ -38,6 +39,35 @@ user_router.post('/', async (request, response) => {
         response.status(500).send({ message: error.message });
     }
 });
+
+// Login route
+
+user_router.get('/login/:email', async (request, response) => {
+    try {
+        const email = request.params.email; // Get email from URL parameter
+
+        // Search for user by email
+        const user = await User.findOne({ email: email });
+
+        if (user) {
+            // If user is found, return the password
+            return response.status(200).json({
+                message: 'Password found:',
+                user: user,
+            });
+        } else {
+            // If user is not found, return an appropriate message
+            return response.status(404).json({
+                message: 'User not found with the provided email id.',
+            });
+        }
+    } catch (error) {
+        console.error(error);
+        return response.status(500).json({ message: 'Internal Server Error' });
+    }
+});
+
+
 
 // Route to Get All Books from database
 user_router.get('/', async (request, response) => {

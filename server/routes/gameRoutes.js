@@ -67,6 +67,21 @@ game_router.get('/:id', async (request, response) => {
     }
 });
 
+// Route to Get all games of a genre
+game_router.get('/:{genre}', async (req, res) => {
+    try {
+        const { genre } = request.params.genre;
+        // Find all games from a certain genre
+        const actionGames = await Game.find({ genre: genre });
+
+        // Send the retrieved data as a JSON response
+        res.status(200).json(actionGames);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+});
+
 // Route to update a Game
 game_router.put('/:id', async (request, response) => {
     try {

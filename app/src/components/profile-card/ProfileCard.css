@@ -1,0 +1,132 @@
+.profile-card {
+    color: white;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    margin: 20px 20px 0 20px;
+}
+
+.profile-user-img,
+.profile-user-data,
+.profile-user-side {
+    height: 200px;
+}
+
+.profile-user-img img {
+    border: 2px solid white;
+    border-radius: 50%;
+    height: 100%;
+}
+
+.profile-user-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.profile-user-data span {
+    font-weight: 600;
+}
+
+.user-name {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.user-email {
+    font-size: 12px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.user-data {
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.profile-user-side {
+    text-align: right;
+}
+
+.user-side-data {
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 1000px) {
+    .profile-card {
+        gap: 10px;
+        margin: 10px 10px 0 10px;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .profile-card {
+        gap: 10px;
+        margin: 10px 10px 0 10px;
+    }
+
+    .profile-user-img,
+    .profile-user-data,
+    .profile-user-side {
+        height: auto;
+    }
+
+    .profile-user-img {
+        text-align: left;
+    }
+
+    .profile-user-img img {
+        height: 100px;
+    }
+
+    .profile-user-data {
+        justify-content: flex-start;
+    }
+
+
+    .user-name {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .user-email {
+        font-size: 8px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+    }
+
+    .user-data {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .profile-user-side {
+        text-align: right;
+    }
+
+    .user-side-data {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .profile-card {
+        gap: 5px;
+        margin: 10px 10px 0 10px;
+    }
+
+    .user-name {
+        font-size: 16px;
+    }
+
+    .user-side-data {
+        font-size: 12px;
+    }
+}

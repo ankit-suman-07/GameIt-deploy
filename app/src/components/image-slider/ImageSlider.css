@@ -1,0 +1,44 @@
+.image-slider {
+    background-color: #000123;
+
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.image-slider img {
+    height: 100%;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.image-slider button {
+    background: transparent;
+    border: none;
+    padding: 10px;
+    height: 100px;
+    width: 100px;
+
+}
+
+.image-slider button img {
+    height: 80%;
+}
+
+.left-btn {
+    position: absolute;
+    left: 20px;
+}
+
+.right-btn {
+    position: absolute;
+    right: 20px;
+}
+
+@media (max-width: 800px) {
+    .image-slider {
+        height: 300px;
+    }
+}

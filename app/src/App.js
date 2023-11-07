@@ -12,11 +12,16 @@ import UploadVid from './components/upload-files/UploadVid';
 
 import Home from './pages/home/Home';
 import HomeStudio from './pages/studio-home/HomeStudio';
+import UserHome from './pages/user-home/UserHome';
 import StudioShowGame from './pages/studio-home/studio-games/studio-show/StudioShowGame';
 import StudioCreateGame from './pages/studio-home/studio-games/studio-create/StudioCreateGame';
 import CreateUser from './CreateUser';
 import StudioEditGame from './pages/studio-home/studio-games/studio-edit/StudioEditGame';
 import SignUp from './pages/signup-page/SignUp';
+import Genres from './pages/genres/Genres';
+import ProfileUser from './pages/user-home/user-profile/ProfileUser';
+import Contact from './pages/contact-page/Contact';
+import Notification from './pages/notification-page/Notification';
 
 import { UserProvider } from './context/UserContext';
 
@@ -28,6 +33,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/homestudio" element={<HomeStudio />} />
+          <Route path="/homeuser" element={<UserHome />} />
+          <Route path="/user/genres" element={<Genres />} />
+          <Route path="/user/contactus" element={<Contact />} />
+          <Route path="/user/about" element={<Contact />} />
+          <Route path="/user/profileuser" element={<ProfileUser />} />
+          <Route path="/user/notifications" element={<Notification />} />
           <Route path="/games/details/:id" element={<StudioShowGame />} />
           <Route path="/games/create" element={<StudioCreateGame />} />
           <Route path="/games/edit/:id" element={<StudioEditGame />} />

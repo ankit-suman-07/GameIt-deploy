@@ -12,7 +12,7 @@ import { UserContext } from '../../../../context/UserContext';
 
 const StudioCreateGame = () => {
     const [name, setName] = useState('');
-    const [company, setCompany] = useState('');
+    const [company, setCompany] = useState('Activision Blizzard');
     const [year, setYear] = useState('');
     const [genre, setGenre] = useState([]);
     const [selectedGenre, setSelectedGenre] = useState([]);
@@ -30,10 +30,19 @@ const StudioCreateGame = () => {
     const [selectedConsole, setSelectedConsole] = useState([]);
     //const [type, setType] = useState('');
 
+    const genre_tags = [
+        "Action", "RPG", "ActionAdventure", "Adventure", "SuperHero",
+        "Casual", "Fighting", "Horror", "Platformer", "Racing",
+        "Shooter", "Simulator", "Sports", "Strategy"
+
+    ];
+
+    const console_devices = ["PlayStation 5", "Xbox Series X", "PC"];
     const { user } = useContext(UserContext);
 
     const handleGenreChange = (e) => {
         setSelectedGenre(e.target.value); // Update selected genre when user selects an option
+        setCompany(user.name);
     };
 
     const addGenre = () => {
@@ -87,8 +96,10 @@ const StudioCreateGame = () => {
             summary,
             reviews: {},
             consoleDevice,
-            likes: 0
+            likes: 0,
+            plan: ""
         };
+        console.log(sendData);
         axios
             .post('http://localhost:5000/games', sendData)
             .then((response) => {
@@ -123,9 +134,13 @@ const StudioCreateGame = () => {
 
                 <select onChange={handleGenreChange}>
                     <option value="">Select Genre</option>
-                    <option value="Action">Action</option>
-                    <option value="Adventure">Adventure</option>
-                    <option value="RPG">RPG</option>
+                    {
+                        genre_tags.map((item, idx) => {
+                            return <option key={idx} value={item}>{item}</option>
+                        })
+                    }
+
+
                     {/* Add more genre options as needed */}
                 </select>
                 <button onClick={addGenre}>Add Genre</button>
@@ -202,10 +217,13 @@ const StudioCreateGame = () => {
 
                 <select onChange={handleConsoleChange}>
                     <option value="">Select Console</option>
-                    <option value="PC">PC</option>
-                    <option value="PS4">PS4</option>
-                    <option value="XBOX">XBOX</option>
-                    {/* Add more genre options as needed */}
+                    {
+                        console_devices.map((item) => {
+                            return <option value={item}> {item} </option>
+                        })
+                    }
+
+
                 </select>
                 <button onClick={addConsole}>Add Console</button>
                 <div>

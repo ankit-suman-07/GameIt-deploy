@@ -117,7 +117,7 @@ const StudioShowGame = () => {
                                 Consoles
                             </div>
                             {
-                                game.console && (game.console).map((item, idx) => {
+                                game.consoleDevice && (game.consoleDevice).map((item, idx) => {
                                     return (
                                         <span key={idx} >{item}</span>
                                     );

@@ -11,7 +11,7 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordMatch, setPasswordMatch] = useState('');
-    const [type, setType] = useState('');
+    const [usertype, setType] = useState('');
     const [showError, setShowError] = useState(false);
     const [passwordMatchError, setPasswordMatchError] = useState(false);
 
@@ -24,7 +24,7 @@ const SignUp = () => {
     // }
 
     const handleCreateUser = () => {
-        if (!name || !email || !password || !passwordMatch || !type) {
+        if (!name || !email || !password || !passwordMatch || !usertype) {
             setShowError(true);
         }
 
@@ -37,13 +37,13 @@ const SignUp = () => {
         console.log(name);
         console.log(email);
         console.log(password);
-        console.log(type);
+        console.log(usertype);
 
         const sendData = {
             name,
             email,
             password,
-            type,
+            usertype,
             profile: "",
             saved: [],
             playing: [],
@@ -51,7 +51,8 @@ const SignUp = () => {
             likes: [],
             reviews: {},
             notifications: [],
-            warnings: []
+            warnings: [],
+            plan: "",
         };
         axios
             .post('http://localhost:5000/users', sendData)

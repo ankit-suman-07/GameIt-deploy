@@ -3,6 +3,7 @@ import "./Home.css";
 import { UserContext } from '../../context/UserContext';
 import Login from '../login-page/Login';
 import HomeStudio from '../studio-home/HomeStudio';
+import UserHome from '../user-home/UserHome';
 
 const Home = () => {
     const { user } = useContext(UserContext);
@@ -11,9 +12,9 @@ const Home = () => {
         <div className='home-outer' >
             {
                 user.email
-                    ? (user.type === "user"
-                        ? "User Home"
-                        : (user.type === "studio"
+                    ? (user.usertype === "Gamer"
+                        ? <UserHome />
+                        : (user.usertype === "Game Studio"
                             ? <HomeStudio />
                             : "User Admin"))
                     : <Login />

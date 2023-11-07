@@ -19,7 +19,7 @@ const HomeStudio = () => {
     useEffect(() => {
         //setLoading(true);
         axios
-            .get('https://server-gameit.onrender.com/games')
+            .get('http://localhost:5000/games')
             .then((response) => {
                 setGames(response.data.data);
                 //setLoading(false);
@@ -34,17 +34,7 @@ const HomeStudio = () => {
     return (
         <div className='homestudio-outer' >
             <StudioNav />
-            {/* <nav>
-                <div className='studiohome-logo' >
-                    <img src={Logo} alt='website_logo' />
-                    <div className='studiohome-name' >
-                        GAMEIT
-                    </div>
-                </div>
-                <div className='studio-welcome' >
-                    Welcome, <span>Studio name</span>
-                </div>
-            </nav> */}
+
             <main>
                 <div className='studio-grids' >
                     <div className='studio-logo' >
@@ -117,15 +107,7 @@ const HomeStudio = () => {
                         })
                     }
 
-                    {/* <StudioGamesCard />
-                    <StudioGamesCard />
-                    <StudioGamesCard />
-                    <StudioGamesCard />
-                    <StudioGamesCard />
-                    <StudioGamesCard />
-                    <StudioGamesCard />
-                    <StudioGamesCard />
-                    <StudioGamesCard /> */}
+
                 </div>
             </main>
         </div>

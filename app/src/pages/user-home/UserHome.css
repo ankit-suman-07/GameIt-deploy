@@ -1,0 +1,21 @@
+nav {
+    border-bottom: 1px solid #D9D9D9;
+}
+
+section {
+    margin-top: 10px;
+}
+
+main {
+    min-height: calc(100vh - 70px);
+    margin-top: 30px;
+}
+
+.slider-head {
+    color: #ffff;
+    text-align: left;
+    margin: 10px 0 0 10px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
