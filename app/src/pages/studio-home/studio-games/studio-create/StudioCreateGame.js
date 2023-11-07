@@ -37,7 +37,16 @@ const StudioCreateGame = () => {
 
     ];
 
-    const console_devices = ["PlayStation 5", "Xbox Series X", "PC"];
+    const console_devices = [
+        "Game Boy", "PC",
+        "iOS", "Android",
+        "Play Station", "PS Vita",
+        "PS 3", "PS 4", "PS 5", "PS VR",
+        "Xbox", "Xbox One", "Xbox 360",
+        "Xbox Series X", "Xbox Series X/S",
+        "Nintendo Switch", "Nintendo ES", "Nintendo GameCube",
+
+    ];
     const { user } = useContext(UserContext);
 
     const handleGenreChange = (e) => {
@@ -114,125 +123,145 @@ const StudioCreateGame = () => {
     };
 
     return (
-        <div className='demo-demo' >
+        <div className='studiocreategame-outer' >
             <StudioNav />
-            <h2>Create a New User</h2>
-            <div>
-                <label>Name:</label>
-                <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+            <div className='studiocreategame-header' >
+                Add a New Game
             </div>
-            <div>
-                <label>Company:</label>
-                <input type="text" value={user.name} disabled onChange={(e) => setCompany(e.target.value)} />
-            </div>
-            <div>
-                <label>Year:</label>
-                <input type="text" value={year} onChange={(e) => setYear(e.target.value)} />
-            </div>
-            <div>
-                <label>Genre:</label>
-
-                <select onChange={handleGenreChange}>
-                    <option value="">Select Genre</option>
-                    {
-                        genre_tags.map((item, idx) => {
-                            return <option key={idx} value={item}>{item}</option>
-                        })
-                    }
+            <div className='studiocreategame-main' >
 
 
-                    {/* Add more genre options as needed */}
-                </select>
-                <button onClick={addGenre}>Add Genre</button>
-                <div>
-                    <strong>Selected Genres:</strong> {genre.join(', ')}
-                </div>
-            </div>
+                <div className='studiocreategame-main_1' >
+                    <div className='label-div' >
+                        <label className='create-label' >Studio : </label>
+                        <input type="text" value={user.name} disabled onChange={(e) => setCompany(e.target.value)} />
+                    </div>
+                    <div className='label-div' >
+                        <label className='create-label' >Game : </label>
+                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    </div>
+                    <div className='label-div' >
+                        <label className='create-label' >Year:</label>
+                        <input type="text" value={year} onChange={(e) => setYear(e.target.value)} />
+                    </div>
+                    <div className='label-div' >
 
-            <div>
-                <label>Tags:</label>
-                <input
-                    type="text"
-                    value={selectedTag}
-                    onChange={handleTagChange}
-                    placeholder="Enter a tag"
-                />
-                <button onClick={addTag}>Add Tag</button>
-                <div>
-                    <strong>Selected Tags:</strong> {tags.join(', ')}
-                </div>
-            </div>
+                        <select onChange={handleGenreChange}>
+                            <option value="">Select Genre</option>
+                            {
+                                genre_tags.map((item, idx) => {
+                                    return <option key={idx} value={item}>{item}</option>
+                                })
+                            }
 
-            <div>
-                <label>Price:</label>
-                <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
-            </div>
-            <div>
-                <label>Rating:</label>
-                <input type="text" value={rating} onChange={(e) => setRating(e.target.value)} />
-            </div>
-            <div>
-                Poster
-                <Upload setImage={setPoster} />
-                {
-                    poster && <div>
-                        <img src={poster}
-                            alt="cloudinary"
+
+                            {/* Add more genre options as needed */}
+                        </select>
+                        <button onClick={addGenre}>Add Genre</button>
+                        <div>
+                            <strong>Selected Genres:</strong> {genre.join(', ')}
+                        </div>
+                    </div>
+                    <div className='label-div' >
+                        <input
+                            type="text"
+                            value={selectedTag}
+                            onChange={handleTagChange}
+                            placeholder="Enter a tag"
                         />
+                        <button onClick={addTag}>Add Tag</button>
+                        <div>
+                            <strong>Selected Tags:</strong> {tags.join(', ')}
+                        </div>
                     </div>
-                }
-            </div>
 
-            <div>
-                Trailer
-                <UploadVid setTrailer={setTrailer} />
-                {
-                    trailer && <div>
-                        <VideoPlayer low={trailer} mid={trailer} high={trailer} />
+                    <div className='label-div' >
+                        <label className='create-label' >Price:</label>
+                        <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
+                    </div>
+                    <div className='label-div' >
+                        <label className='create-label' >Rating:</label>
+                        <input type="text" value={rating} onChange={(e) => setRating(e.target.value)} />
+                    </div>
+
+                    <div className='label-div' >
+                        <select onChange={handleConsoleChange}>
+                            <option value="">Select Console</option>
+                            {
+                                console_devices.map((item) => {
+                                    return <option value={item}> {item} </option>
+                                })
+                            }
+
+
+                        </select>
+                        <button onClick={addConsole}>Add Console</button>
+                        <div>
+                            <strong>Supported Devices:</strong> {consoleDevice.join(', ')}
+                        </div>
+
 
                     </div>
-                }
-
-            </div>
-            Screenshots ---
-
-            <div>
-                Screenshots:
-                <Upload setImage={handleAddScreenshot} />
-                <Upload setImage={handleAddScreenshot} />
-                <Upload setImage={handleAddScreenshot} />
-                {screenshots.map((screenshot, index) => (
-                    <div key={index}>
-                        <img src={screenshot} alt={`screenshot-${index}`} />
-                    </div>
-                ))}
-            </div>
-            <div>
-                <label>Summary:</label>
-                <input type="text" value={summary} onChange={(e) => setSummary(e.target.value)} />
-            </div>
-
-            <div>
-                <label>Console:</label>
-
-                <select onChange={handleConsoleChange}>
-                    <option value="">Select Console</option>
-                    {
-                        console_devices.map((item) => {
-                            return <option value={item}> {item} </option>
-                        })
-                    }
-
-
-                </select>
-                <button onClick={addConsole}>Add Console</button>
-                <div>
-                    <strong>Selected Genres:</strong> {consoleDevice.join(', ')}
                 </div>
+
+
+
+                <div className='studiocreategame-main_2' >
+
+                    <div className='label-div' >
+                        <label>Summary:</label>
+                        <textarea type="textarea" value={summary} onChange={(e) => setSummary(e.target.value)} />
+                    </div>
+
+                </div>
+
+
+                <div className='studiocreategame-upload-poster' >
+                    <label>Select Poster Image </label>
+                    <Upload setImage={setPoster} />
+                    <div>
+                        {
+                            poster &&
+                            <img src={poster}
+                                alt="cloudinary"
+                            />
+                        }
+                    </div>
+
+                </div>
+
+                <div className='studiocreategame-upload-ss' >
+                    <label>Upload Screen Captures </label>
+                    <div className='ss-upload' >
+                        <Upload setImage={handleAddScreenshot} />
+                        <Upload setImage={handleAddScreenshot} />
+                        <Upload setImage={handleAddScreenshot} />
+                    </div>
+
+                    <div className='ss-display' >
+                        {screenshots.map((screenshot, index) => (
+
+                            <img key={index} src={screenshot} alt={`screenshot-${index}`} />
+
+                        ))}
+                    </div>
             </div>
 
-            <button onClick={handleCreateUser}>Create User</button>
+                <div className='studiocreategame-upload-trailer' >
+                    <label>Select Trailer </label>
+                    <UploadVid setTrailer={setTrailer} />
+                    {
+                        trailer && <VideoPlayer low={trailer} mid={trailer} high={trailer} />
+
+                    }
+                </div>
+                <div className='studio-add-game-btn' >
+                    <button onClick={handleCreateUser}>Create User</button>
+                </div>
+
+
         </div>
+        </div >
     );
 };
 

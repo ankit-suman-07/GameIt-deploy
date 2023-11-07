@@ -1,3 +1,159 @@
-.demo-demo {
+.studiocreategame-outer {
     color: white;
+}
+.studiocreategame-header {
+    margin: 30px 200px;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.studiocreategame-main {
+    margin: 20px 200px;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; */
+}
+
+.studiocreategame-main_1 {
+    border: 2px solid white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.studiocreategame-main_2 {
+    border: 2px solid white;
+    margin: 10px;
+    padding: 10px;
+}
+
+.studiocreategame-upload-poster {
+    border: 2px solid white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 10px;
+    padding: 10px;
+}
+
+.studiocreategame-upload-poster div {
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.studiocreategame-upload-poster div img {
+    border: 2px solid #ffff;
+    border-radius: 2px;
+    width: 80%;
+}
+
+.ss-upload,
+.ss-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.studiocreategame-upload-ss {
+    border: 2px solid white;
+    margin: 10px;
+    padding: 10px;
+}
+
+.ss-display {
+    min-height: 100px;
+    margin-top: 5px;
+}
+
+.ss-display img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border: 2px solid #ffff;
+}
+
+
+
+.studiocreategame-upload-trailer {
+    border: 2px solid white;
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 1fr 1.5fr 1.5fr;
+    margin: 10px;
+    gap: 30px;
+}
+
+.label-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.label-div label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-right: 10px;
+}
+
+.label-div button {
+    background-color: #B50702;
+    border: 2px solid white;
+    color: #ffff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 10px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.label-div button:hover {
+    cursor: pointer;
+    background-color: #ffff;
+    color: #B50702;
+}
+
+.summary-box {
+    height: 100px;
+    padding: 5px;
+    font-size: 12px;
+    text-align: justify;
+    font-weight: 600;
+}
+
+strong {
+    font-size: 12px;
+}
+
+.studio-add-game-btn {
+    padding: 10px;
+    text-align: center;
+}
+
+.studio-add-game-btn button {
+    width: 100%;
+    background-color: #B50702;
+    border: 2px solid white;
+    color: #ffff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 2px;
+    padding: 10px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.studio-add-game-btn button:hover {
+    cursor: pointer;
+    background-color: #ffff;
+    color: #B50702;
 }

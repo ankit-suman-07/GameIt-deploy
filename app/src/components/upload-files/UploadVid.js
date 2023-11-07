@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "./UploadVid.css";
 
 const UploadVid = ({ setTrailer }) => {
 
@@ -29,21 +30,19 @@ const UploadVid = ({ setTrailer }) => {
             });
     }
     return (
-        <div>
-            <div>
+        <div className='uploadvideo-outer' >
+
                 <input
                     type='file'
                     onChange={(event) => {
                         setVideoSelected(event.target.files)
                     }} />
-                <button onClick={uploadVideo} >Upload Video</button>
-            </div>
-            <div>
-                {perc + "%"}
-            </div>
-            <div>
+            <button onClick={uploadVideo} >Upload
+                {
+                    (perc > 0 && perc < 100) && (" " + perc + "%")
+                }
+            </button>
 
-            </div>
         </div>
     )
 }

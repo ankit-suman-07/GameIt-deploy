@@ -1,0 +1,19 @@
+.upload-outer button {
+    background-color: #B50702;
+    border: 2px solid white;
+    color: #ffff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 5px;
+
+    padding: 10px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.upload-outer button:hover {
+    cursor: pointer;
+    background-color: #ffff;
+    color: #B50702;
+}

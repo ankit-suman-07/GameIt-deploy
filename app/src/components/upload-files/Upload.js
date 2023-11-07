@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import "./Upload.css";
 
 const Upload = ({ setImage }) => {
 
@@ -21,18 +22,15 @@ const Upload = ({ setImage }) => {
 
 
     return (
-        <div>
-            Coudinary
-            <div>
+        <div className='upload-outer' >
                 <input
                     type='file'
                     onChange={(event) => {
                         setImageSelected(event.target.files)
                     }} />
-                <button onClick={uploadImage} >Upload Image</button>
-            </div>
-
+            <button onClick={uploadImage} >Upload</button>
         </div>
+
     )
 }
 
