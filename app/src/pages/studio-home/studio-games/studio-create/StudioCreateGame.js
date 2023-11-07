@@ -188,8 +188,8 @@ const StudioCreateGame = () => {
                         <select onChange={handleConsoleChange}>
                             <option value="">Select Console</option>
                             {
-                                console_devices.map((item) => {
-                                    return <option value={item}> {item} </option>
+                                console_devices.map((item, idx) => {
+                                    return <option value={item} key={idx} > {item} </option>
                                 })
                             }
 
@@ -210,7 +210,11 @@ const StudioCreateGame = () => {
 
                     <div className='label-div' >
                         <label>Summary:</label>
-                        <textarea type="textarea" value={summary} onChange={(e) => setSummary(e.target.value)} />
+                        <textarea
+                            type="textarea"
+                            value={summary}
+                            onChange={(e) => setSummary(e.target.value)}
+                        />
                     </div>
 
                 </div>

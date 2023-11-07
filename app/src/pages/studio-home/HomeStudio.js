@@ -94,7 +94,7 @@ const HomeStudio = () => {
                         games && games.map((game, idx) => {
                             return (
                                 <div key={idx} >
-                                    <Link to={`/games/details/${game._id}`}>
+                                    <Link to={`/games/details/${game._id}`} as="div" className="custom-link" >
                                         <StudioGamesCard
                                             poster={game.poster}
                                             alt={game.name + " poster"}

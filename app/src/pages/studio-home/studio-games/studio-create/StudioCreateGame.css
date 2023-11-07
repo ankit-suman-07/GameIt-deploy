@@ -2,8 +2,8 @@
     color: white;
 }
 .studiocreategame-header {
-    margin: 30px 200px;
-    font-size: 24px;
+    margin: 30px;
+        font-size: 20px;
     font-weight: 600;
     letter-spacing: 1px;
 }
@@ -156,4 +156,53 @@ strong {
     cursor: pointer;
     background-color: #ffff;
     color: #B50702;
+}
+@media(max-width:900px) {
+    .studiocreategame-main {
+        margin: 20px;
+    }
+
+    .studiocreategame-main_1 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .studiocreategame-upload-poster {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ss-upload,
+    .ss-display {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .studiocreategame-upload-trailer {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width:600px) {
+    .studiocreategame-main {
+        margin: 10px;
+    }
+
+    .studiocreategame-main_1 {
+        grid-template-columns: 1fr;
+    }
+
+    .studiocreategame-upload-poster {
+        grid-template-columns: 1fr;
+    }
+
+    .ss-upload,
+    .ss-display {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .studiocreategame-upload-trailer {
+        grid-template-columns: 1fr;
+    }
 }

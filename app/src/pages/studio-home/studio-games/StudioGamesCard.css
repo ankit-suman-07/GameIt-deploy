@@ -17,6 +17,12 @@
     color: white;
     margin-top: 5px;
     text-align: left;
+    text-decoration: none;
+    }
+    
+    .custom-link {
+        text-decoration: none;
+        color: inherit;
 }
 
 @media(max-width:900px) {
