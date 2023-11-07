@@ -83,7 +83,7 @@ const StudioShowGame = () => {
                         <span>Year : {game.year}</span>
                         <span>Price : ${game.price}</span>
                         <span>Rating : {game.rating}</span>
-                        <Link to={`/games/edit/${game._id}`}>
+                        <Link to={`/games/edit/${game._id}`} className='edit-link' >
                             <span>Edit Game Details</span>
                         </Link>
                     </div>

@@ -96,7 +96,7 @@ user_router.get('/:id', async (request, response) => {
     }
 });
 
-// Route to Get 1 Book from database by id
+// Route to Get 1 User from database by email
 user_router.get('/:email', async (request, response) => {
     try {
         const { id } = request.params;
@@ -109,7 +109,7 @@ user_router.get('/:email', async (request, response) => {
     }
 });
 
-// Route to update a Book
+// Route to update a User
 user_router.put('/:id', async (request, response) => {
     try {
         if (

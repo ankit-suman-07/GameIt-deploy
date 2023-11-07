@@ -13,6 +13,7 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 20px;
+    text-decoration: none;
 }
 
 .studiohome-logo img {
@@ -24,6 +25,7 @@ nav {
     color: #ffff;
     font-size: 25px;
     font-weight: 800;
+    
 }
 
 .studio-welcome {
@@ -37,4 +39,19 @@ nav {
 .studio-welcome span {
     margin: 10px;
     font-weight: 600;
+}
+@media screen and (max-width:600px) {
+    .studiohome-name {
+        font-size: 20px;
+
+    }
+
+    .studio-welcome {
+        margin-right: 5px;
+        font-size: 14px;
+    }
+
+    .studio-welcome span {
+        margin: 5px;
+    }
 }

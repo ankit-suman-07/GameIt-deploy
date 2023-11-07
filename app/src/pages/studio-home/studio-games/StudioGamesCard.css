@@ -1,7 +1,12 @@
 .studiogamescard-outer {
     max-width: 250px;
+    transition: all 0.3s;
 }
 
+.studiogamescard-outer:hover {
+    cursor: pointer;
+    transform: scale(110%);
+}
 .studio-games-poster {
     height: 300px;
 }

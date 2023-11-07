@@ -1,14 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-//import axios from 'axios';
 import './App.css';
 
 import Upload from './components/upload-files/Upload';
 import UploadVid from './components/upload-files/UploadVid';
-// import VideoPlayer from './components/video-player/VideoPlayer';
-// import VideoPlayers from './components/VP';
-// import VideoUploader from './components/video-uploader/VideoUploader';
-
 
 import Home from './pages/home/Home';
 import HomeStudio from './pages/studio-home/HomeStudio';
@@ -18,6 +13,7 @@ import StudioCreateGame from './pages/studio-home/studio-games/studio-create/Stu
 import CreateUser from './CreateUser';
 import StudioEditGame from './pages/studio-home/studio-games/studio-edit/StudioEditGame';
 import SignUp from './pages/signup-page/SignUp';
+import Login from './pages/login-page/Login';
 import Genres from './pages/genres/Genres';
 import ProfileUser from './pages/user-home/user-profile/ProfileUser';
 import Contact from './pages/contact-page/Contact';
@@ -45,6 +41,7 @@ function App() {
           <Route path="/upload" element={<Upload />} />
           <Route path="/uploadvid" element={<UploadVid />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/abc" element={<CreateUser />} />
         </Routes>
       </Router>

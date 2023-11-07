@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import "./SignUp.css";
 //import { UserContext } from '../../context/UserContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import BackGround from "../../assets/login-bg.png";
@@ -116,6 +116,9 @@ const SignUp = () => {
 
                 </div>
             </div>
+            <Link to={'/login'} className='new-user-btn' >
+                Existing User? Log In
+            </Link>
         </div>
     )
 }

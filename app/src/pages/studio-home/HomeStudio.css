@@ -82,13 +82,20 @@
     border-bottom: 2px solid #ffff;
     padding-bottom: 10px;
     color: #ffff;
-    font-size: 16px;
-}
+    font-size: 14px;
+        font-weight: 600;
+    }
+    
+    .link-text {
+        color: #ffff;
+        text-decoration: none;
+        transition: all 0.3s all;
+    }
 
 .studio-grid-content {
     margin-top: 20px;
     color: #ffff;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -108,6 +115,17 @@
     gap: 20px;
 }
 
+.add-btn {
+    transition: all 0.3s all;
+}
+
+.add-btn:hover {
+    cursor: pointer;
+    border: 4px solid #ffff;
+    background-color: #B50702;
+    border-radius: 4px;
+    transform: scale(90%);
+}
 @media(max-width:900px) {
     .studio-grids {
         grid-template-columns: 1fr 1fr 1fr 1fr;

@@ -149,6 +149,22 @@
     letter-spacing: 1px;
 }
 
+.edit-link {
+    text-decoration: none;
+    color: #ffff;
+}
+
+.edit-link span {
+    background-color: #ffff;
+    color: #B50702;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.edit-link span:hover {
+    background-color: #B50702;
+    color: #ffff;
+}
 @media(max-width:900px) {
     .studioshowgame-header {
         margin: 20px;

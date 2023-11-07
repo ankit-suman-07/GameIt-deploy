@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import "./HomeStudio.css";
@@ -10,26 +10,53 @@ import StudioNav from '../../components/studio-navbar/StudioNav';
 
 //import Logo from "../../assets/logo.png";
 import GameLogo from "../../assets/game-logo.png";
+import { UserContext } from '../../context/UserContext';
 
 const HomeStudio = () => {
 
     const [games, setGames] = useState(null);
-    //const { user, updateUser } = useContext(UserContext);
+    const [gamesAdded, setGamesAdded] = useState(0);
+    const [gamesSold, setGamesSold] = useState(0);
+    const [totalReviews, setTotalReviews] = useState(0);
+    const [totalWarnings, setTotalWarning] = useState(0);
+    const { user } = useContext(UserContext);
+
+
+    const calcReviewsCount = (reviews) => {
+        const reviewsArrays = Object.values(reviews);
+        const allReviews = reviewsArrays.flat();
+        console.log(allReviews.length);
+        return allReviews.length;
+    }
 
     useEffect(() => {
-        //setLoading(true);
         axios
             .get('http://localhost:5000/games')
             .then((response) => {
                 setGames(response.data.data);
-                //setLoading(false);
-                console.log(response.data.data);
             })
             .catch((error) => {
                 console.log(error);
-                //setLoading(false);
             });
     }, []);
+
+    useEffect(() => {
+        if (games) {
+            let reviewsCount = 0;
+            let gamesCount = 0;
+            let soldCount = 0;
+            games.forEach((game) => {
+                if (game.company === user.name) {
+                    gamesCount += 1;
+                    soldCount += game.sold;
+                    reviewsCount += calcReviewsCount(game.reviews);
+                }
+                setGamesAdded(gamesCount);
+                setGamesSold(soldCount);
+                setTotalReviews(reviewsCount);
+            });
+        }
+    }, [games, user]);
 
     return (
         <div className='homestudio-outer' >
@@ -45,7 +72,7 @@ const HomeStudio = () => {
                             Games Added
                         </div>
                         <div className='studio-grid-content' >
-                            23
+                            {gamesAdded}
                         </div>
                     </div>
                     <div className='studio-grid-item' >
@@ -53,7 +80,7 @@ const HomeStudio = () => {
                             Games Sold
                         </div>
                         <div className='studio-grid-content' >
-                            43500
+                            {gamesSold}
                         </div>
                     </div>
                     <div className='studio-grid-item' >
@@ -61,25 +88,23 @@ const HomeStudio = () => {
                             Total Reviews
                         </div>
                         <div className='studio-grid-content' >
-                            12
+                            {totalReviews}
                         </div>
                     </div>
-                    <div className='studio-grid-item' >
+                    <div className='studio-grid-item add-btn' >
                         <div className='studio-grid-head' >
-                            <Link to={'/games/create'}>
+                            <Link to={'/games/create'} className='link-text' >
                                 Add a Game
                             </Link>
                         </div>
-                        <div className='studio-grid-content' >
 
-                        </div>
                     </div>
                     <div className='studio-grid-item' >
                         <div className='studio-grid-head' >
                             Community Warnings
                         </div>
                         <div className='studio-grid-content' >
-                            0
+                            {user.warnings && (user.warnings).length}
                         </div>
                     </div>
 
@@ -93,8 +118,12 @@ const HomeStudio = () => {
                     {
                         games && games.map((game, idx) => {
                             return (
+
+                                (user.name === game.company)
+                                &&
                                 <div key={idx} >
                                     <Link to={`/games/details/${game._id}`} as="div" className="custom-link" >
+
                                         <StudioGamesCard
                                             poster={game.poster}
                                             alt={game.name + " poster"}
@@ -103,6 +132,8 @@ const HomeStudio = () => {
                                     </Link>
 
                                 </div>
+
+
                             );
                         })
                     }
