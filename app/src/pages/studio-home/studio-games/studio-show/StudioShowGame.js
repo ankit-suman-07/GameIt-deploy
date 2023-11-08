@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
+import { UserContext } from '../../../../context/UserContext';
 
 import "./StudioShowGame.css";
 import StudioNav from '../../../../components/studio-navbar/StudioNav';
@@ -9,6 +10,7 @@ import VideoPlayer from '../../../../components/video-player/VideoPlayer';
 const StudioShowGame = () => {
     const [game, setGame] = useState(null); // Initialize game state as null
     const { id } = useParams();
+    const { user } = useContext(UserContext);
 
     useEffect(() => {
         //setLoading(true);
@@ -56,9 +58,9 @@ const StudioShowGame = () => {
 
 
                         {
-                            game.screenshots && (game.screenshots).map((screenshot) => {
+                            game.screenshots && (game.screenshots).map((screenshot, idx) => {
                                 return (
-                                    <img src={screenshot} alt='screenshot' />
+                                    <img src={screenshot} alt='screenshot' key={idx} />
                                 );
                             })
                         }
@@ -83,9 +85,12 @@ const StudioShowGame = () => {
                         <span>Year : {game.year}</span>
                         <span>Price : ${game.price}</span>
                         <span>Rating : {game.rating}</span>
-                        <Link to={`/games/edit/${game._id}`} className='edit-link' >
-                            <span>Edit Game Details</span>
-                        </Link>
+                        {
+                            !(user.usertype === "Gamer") && <Link to={`/games/edit/${game._id}`} className='edit-link' >
+                                <span>Edit Game Details</span>
+                            </Link>
+                        }
+
                     </div>
                     <div className='studioshowgame-info-multiple' >
                         <div className='studioshowgame-box' >

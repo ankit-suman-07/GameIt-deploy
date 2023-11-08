@@ -1,10 +1,12 @@
-import { React, useState } from 'react';
+import { React, useState, useContext } from 'react';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import "./SignUp.css";
 //import { UserContext } from '../../context/UserContext';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import { auth } from "../../firebase/Firebase"
 import BackGround from "../../assets/login-bg.png";
+import { UserContext } from '../../context/UserContext';
 
 const SignUp = () => {
     const [name, setName] = useState('');
@@ -15,9 +17,20 @@ const SignUp = () => {
     const [showError, setShowError] = useState(false);
     const [passwordMatchError, setPasswordMatchError] = useState(false);
 
+    const [isValidPassword, setIsValidPassword] = useState(true);
+
+    const handlePasswordChange = (e) => {
+        const password = e.target.value;
+        setPassword(password);
+
+        // Check if the password meets the criteria
+        const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{6,}$/;
+        setIsValidPassword(passwordRegex.test(password));
+    };
+
     const navigate = useNavigate();
 
-    //const { user, updateUser } = useContext(UserContext);
+    const { user, updateUser } = useContext(UserContext);
 
     // const handleSignUp = () => {
 
@@ -28,43 +41,51 @@ const SignUp = () => {
             setShowError(true);
         }
 
-        if (password !== passwordMatch) {
+        else if (password !== passwordMatch) {
             setPasswordMatchError(true);
         }
-        // updateUser({ email, password });
-        // console.log(user)
-        // navigate('/');
-        console.log(name);
-        console.log(email);
-        console.log(password);
-        console.log(usertype);
+        else if (isValidPassword) {
 
-        const sendData = {
-            name,
-            email,
-            password,
-            usertype,
-            profile: "",
-            saved: [],
-            playing: [],
-            bought: [],
-            likes: [],
-            reviews: {},
-            notifications: [],
-            warnings: [],
-            plan: "",
-        };
-        axios
-            .post('http://localhost:5000/users', sendData)
-            .then((response) => {
-                console.log('User created successfully:', response.data);
-                console.log(sendData);
-                navigate('/');
-            })
-            .catch((error) => {
-                console.error('Error creating user:', error);
-                // Handle error, e.g., show an error message to the user
-            });
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredentials) => {
+                    console.log(userCredentials);
+
+                    const sendData = {
+                        name,
+                        email,
+                        password,
+                        usertype,
+                        profile: "",
+                        saved: [],
+                        playing: [],
+                        bought: [],
+                        likes: [],
+                        reviews: {},
+                        notifications: [],
+                        warnings: [],
+                        plan: "",
+                    };
+                    axios
+                        .post('http://localhost:5000/users', sendData)
+                        .then((response) => {
+                            console.log('User created successfully:', response.data);
+                            console.log(sendData);
+                            navigate('/');
+                        })
+                        .catch((error) => {
+                            console.error('Error creating user:', error);
+                            // Handle error, e.g., show an error message to the user
+                        });
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+            navigate('/');
+        }
+        else {
+
+        }
+
     };
 
     return (
@@ -85,12 +106,20 @@ const SignUp = () => {
                             ** Passwords did not match **
                         </div>
                     }
+                    {
+                        !isValidPassword &&
+                        <div>
+                            <span className='signup-error' >* Password must contain atleast 6 characters</span>
+                            <span className='signup-error' >* Password must contain atleast 1 digit</span>
+                            <span className='signup-error' >* Password must contain atleast 1 spacial character</span>
+                        </div>
+                    }
 
                     <div className='signup-inner' >
 
                         <input type='name' placeholder='Name' onChange={(e) => setName(e.target.value)} />
                         <input type='email' placeholder='Email ID' onChange={(e) => setEmail(e.target.value)} />
-                        <input type='password' placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
+                        <input type='password' placeholder='Password' onChange={handlePasswordChange} />
                         <input type='password' placeholder='Confirm Password' onChange={(e) => setPasswordMatch(e.target.value)} />
                         {/* <input type='email' placeholder='Email ID' onChange={(e) => setEmail(e.target.value)} /> */}
 

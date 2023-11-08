@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import "./GameSlider.css";
+import { Link } from 'react-router-dom';
 
 import ArrowRightIcon from '../../assets/right.png';
 import ArrowLeftIcon from '../../assets/left.png';
@@ -50,16 +51,20 @@ const GameSlider = ({ gamesList }) => {
                 {
                     gamesList.map((game, idx) => {
                         return (
+                            <Link to={`/games/details/${game._id}`} className="custom-link" >
                             <div className='outer-box' key={idx}>
+
                                 <div className='inner-box' key={idx} >
                                     <img src={game.poster} alt={names[idx]} />
-                                </div>
+                                    </div>
+
                                 <div className='game-names' >
                                     {
                                         game.name
                                     }
                                 </div>
-                            </div>
+                                </div>
+                            </Link>
                         );
                     })
                 }

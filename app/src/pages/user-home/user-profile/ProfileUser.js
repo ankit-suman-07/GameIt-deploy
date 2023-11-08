@@ -32,7 +32,7 @@ const ProfileUser = () => {
             <section>
                 <ProfileCard />
             </section>
-            <main>
+            {/* <main>
                 <div className="slider-head" >
                     Currently Playing
                 </div>
@@ -80,7 +80,7 @@ const ProfileUser = () => {
                             </div>
                         </div>
                 }
-            </main>
+            </main> */}
         </div>
     )
 }
