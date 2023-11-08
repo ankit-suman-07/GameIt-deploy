@@ -1,0 +1,30 @@
+.aboutpage-outer {
+    color: #ffff;
+    margin: 20px 200px;
+}
+
+.about-section {
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 14px;
+    text-align: justify;
+}
+
+.aboutpage-sub {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .aboutpage-outer {
+        margin: 20px 100px;
+    }
+}
+
+@media (max-width: 700px) {
+    .aboutpage-outer {
+        margin: 10px;
+    }
+}

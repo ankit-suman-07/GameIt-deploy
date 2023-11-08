@@ -17,6 +17,7 @@ import Login from './pages/login-page/Login';
 import Genres from './pages/genres/Genres';
 import ProfileUser from './pages/user-home/user-profile/ProfileUser';
 import Contact from './pages/contact-page/Contact';
+import AboutUs from './pages/about-page/AboutUs';
 import Notification from './pages/notification-page/Notification';
 import GenreGames from './pages/genres/genre-games/GenreGames';
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/user/genres" element={<Genres />} />
           <Route path="/genre/games" element={<GenreGames />} />
           <Route path="/user/contactus" element={<Contact />} />
+          <Route path="/user/about" element={<AboutUs />} />
           <Route path="/user/about" element={<Contact />} />
           <Route path="/user/profileuser" element={<ProfileUser />} />
           <Route path="/user/notifications" element={<Notification />} />
