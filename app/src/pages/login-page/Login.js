@@ -30,7 +30,7 @@ const Login = () => {
                 console.log(userCredential)
         // Make API request to the /login/:email endpoint
                 // Make API request to the /login/:email endpoint
-                axios.get(`http://localhost:5000/users/login/${email}`)
+                axios.get(`https://server-gameit.onrender.com/users/login/${email}`)
                     .then(response => {
                         // Handle successful response here
                         console.log(response.data);

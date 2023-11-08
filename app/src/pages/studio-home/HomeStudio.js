@@ -35,7 +35,7 @@ const HomeStudio = () => {
             navigate('/');
         }
         axios
-            .get('http://localhost:5000/games')
+            .get('https://server-gameit.onrender.com/games')
             .then((response) => {
                 setGames(response.data.data);
             })

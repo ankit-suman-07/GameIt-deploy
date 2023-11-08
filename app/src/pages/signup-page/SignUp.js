@@ -66,7 +66,7 @@ const SignUp = () => {
                         plan: "",
                     };
                     axios
-                        .post('http://localhost:5000/users', sendData)
+                        .post('https://server-gameit.onrender.com/users', sendData)
                         .then((response) => {
                             console.log('User created successfully:', response.data);
                             console.log(sendData);

@@ -95,7 +95,7 @@ const StudioEditGame = () => {
     useEffect(() => {
         //setLoading(true);
         axios
-            .get(`http://localhost:5000/games/${id}`)
+            .get(`https://server-gameit.onrender.com/games/${id}`)
             .then((response) => {
                 console.log(id);
                 setName(response.data.name);
@@ -143,7 +143,7 @@ const StudioEditGame = () => {
             plan
         };
         axios
-            .put(`http://localhost:5000/games/${id}`, sendData)
+            .put(`https://server-gameit.onrender.com/games/${id}`, sendData)
             .then((response) => {
                 console.log('User created successfully:', response.data);
                 console.log(sendData);

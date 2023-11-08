@@ -20,7 +20,7 @@ const UserHome = () => {
                 if (!user.email) {
                     navigate('/');
                 }
-                const response = await axios.get('http://localhost:5000/games');
+                const response = await axios.get('https://server-gameit.onrender.com/games');
                 setGamesList(response.data.data);
 
                 // Create an object to store games based on genres

@@ -110,7 +110,7 @@ const StudioCreateGame = () => {
         };
         console.log(sendData);
         axios
-            .post('http://localhost:5000/games', sendData)
+            .post('https://server-gameit.onrender.com/games', sendData)
             .then((response) => {
                 console.log('User created successfully:', response.data);
                 console.log(sendData);

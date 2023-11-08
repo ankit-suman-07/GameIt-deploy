@@ -15,7 +15,7 @@ const StudioShowGame = () => {
     useEffect(() => {
         //setLoading(true);
         axios
-            .get(`http://localhost:5000/games/${id}`)
+            .get(`https://server-gameit.onrender.com/games/${id}`)
             .then((response) => {
                 setGame(response.data);
                 console.log(response.data);

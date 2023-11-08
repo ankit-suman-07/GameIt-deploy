@@ -13,12 +13,7 @@ Table of Contents
   - [Setting Up the Application](#setting-up-the-application)
     - [Prerequisites](#prerequisites)
     - [Steps to run locally](#steps-to-run-locally)
-  - [Setting up MongoDB Atlas](#setting-up-mongodb-atlas)
-    - [Step 1: Create an Account](#step-1-create-an-account)
-    - [Step 2: Create a New Cluster](#step-2-create-a-new-cluster)
-    - [Step 3: Whitelist IP Address](#step-3-whitelist-ip-address)
-    - [Step 4: Create a Database User](#step-4-create-a-database-user)
-    - [Step 5: Connect to Your Cluster](#step-5-connect-to-your-cluster)
+  - [Summary](#summary)
 
 ### Deployed Link
 
@@ -120,3 +115,9 @@ MongoDB Atlas is a cloud-based database service that allows you to easily set up
 
 ```mongodb
 mongodb+srv://<username>:<password>@clustername.mongodb.net/test?retryWrites=true&w=majority
+
+```
+Create documents with name 'users' and 'games'
+
+
+## Summary
