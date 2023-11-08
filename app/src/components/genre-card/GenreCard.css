@@ -22,6 +22,7 @@
 }
 
 .genre-card:hover {
+    cursor: pointer;
     transform: scale(110%);
     filter: grayscale(100%);
 }

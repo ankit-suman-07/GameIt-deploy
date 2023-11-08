@@ -18,6 +18,7 @@ import Genres from './pages/genres/Genres';
 import ProfileUser from './pages/user-home/user-profile/ProfileUser';
 import Contact from './pages/contact-page/Contact';
 import Notification from './pages/notification-page/Notification';
+import GenreGames from './pages/genres/genre-games/GenreGames';
 
 import { UserProvider } from './context/UserContext';
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/homestudio" element={<HomeStudio />} />
           <Route path="/homeuser" element={<UserHome />} />
           <Route path="/user/genres" element={<Genres />} />
+          <Route path="/genre/games" element={<GenreGames />} />
           <Route path="/user/contactus" element={<Contact />} />
           <Route path="/user/about" element={<Contact />} />
           <Route path="/user/profileuser" element={<ProfileUser />} />

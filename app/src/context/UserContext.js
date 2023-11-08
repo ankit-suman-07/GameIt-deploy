@@ -6,6 +6,7 @@ const UserProvider = ({ children }) => {
     const [user, setUser] = useState({});
     const [gamesList, setGamesList] = useState([]);
     const [allGenres, setAllGenres] = useState({});
+    const [genreGamePage, setGenreGamePage] = useState("");
 
     const updateUser = (newUserData) => {
         setUser(newUserData);
@@ -30,7 +31,7 @@ const UserProvider = ({ children }) => {
     // }
 
     return (
-        <UserContext.Provider value={{ user, updateUser, gamesList, setGamesList, allGenres, setAllGenres }}>
+        <UserContext.Provider value={{ user, updateUser, gamesList, setGamesList, allGenres, setAllGenres, genreGamePage, setGenreGamePage }}>
             {children}
         </UserContext.Provider>
     );
