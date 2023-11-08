@@ -1,19 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 //import "./ProfileUser.css";
 import Navbar from '../../../components/user-navbar/UserNav';
 import ProfileCard from '../../../components/profile-card/ProfileCard';
 import GameSlider from '../../../components/game-slider/GameSlider';
 
 import EmptyImg from "../../../assets/empty.png";
+import { useNavigate } from 'react-router-dom';
 
 import { UserContext } from '../../../context/UserContext';
 
 const ProfileUser = () => {
     const { user } = useContext(UserContext);
+    const navigate = useNavigate();
 
     const playing = false;
     const saved = true;
     const bought = false;
+
+
+    useEffect(() => {
+        if (!user.email) {
+            navigate('/');
+        }
+
+    }, []);
+
 
     return (
         <div className='profile-user' >

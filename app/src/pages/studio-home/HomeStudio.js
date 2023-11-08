@@ -18,7 +18,6 @@ const HomeStudio = () => {
     const [gamesAdded, setGamesAdded] = useState(0);
     const [gamesSold, setGamesSold] = useState(0);
     const [totalReviews, setTotalReviews] = useState(0);
-    const [totalWarnings, setTotalWarning] = useState(0);
     const { user } = useContext(UserContext);
 
 

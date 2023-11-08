@@ -14,7 +14,7 @@ import Batman from "../../assets/Batman.jpg";
 import Witcher from "../../assets/witcher_3.jpg";
 import Skyrim from "../../assets/Skyrim.jpg";
 
-const GameSlider = () => {
+const GameSlider = ({ gamesList }) => {
     const [margin, setMargin] = useState(0);
 
     const images = [
@@ -57,15 +57,15 @@ const GameSlider = () => {
             <div className='games-slider-box' style={sliderStyle} >
 
                 {
-                    images.map((image, idx) => {
+                    gamesList.map((game, idx) => {
                         return (
-                            <div className='outer-box' >
+                            <div className='outer-box' key={idx}>
                                 <div className='inner-box' key={idx} >
-                                    <img src={image} alt={names[idx]} />
+                                    <img src={game.poster} alt={names[idx]} />
                                 </div>
                                 <div className='game-names' >
                                     {
-                                        names[idx]
+                                        game.name
                                     }
                                 </div>
                             </div>
