@@ -1,6 +1,10 @@
 # GameIt - A Game listing App
 
 A Game Listing Websites based on the design and workings of Netflix.
+- This App has been deployed directly from Github repositories, hence no build files are required.
+- Any changes in the repository leads to the changes in the deployed App.
+- Backend Deployed URL: [backend](https://server-gameit.onrender.com/)
+- Frontend Deployed URL : [front-end]( https://gameit.vercel.app/)
 
 Table of Contents
 - [GameIt - A Game listing App](#gameit---a-game-listing-app)
