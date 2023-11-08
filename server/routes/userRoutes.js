@@ -97,15 +97,21 @@ user_router.get('/:id', async (request, response) => {
 });
 
 // Route to Get 1 User from database by email
-user_router.get('/:email', async (request, response) => {
+user_router.get('/email/:email', async (request, response) => {
     try {
-        const { id } = request.params;
+        const { email } = request.params; // Extract email from route params
 
-        const user = await User.findById(id);
+        // Find the user by email using findOne method
+        const user = await User.findOne({ email: email });
+
+        if (!user) {
+            return response.status(404).json({ message: 'User not found' });
+        }
+
         return response.status(200).json(user);
     } catch (error) {
-        console.log(error.response);
-        response.status(500).send({ message: error.message });
+        console.error(error);
+        response.status(500).json({ message: 'Internal Server Error' });
     }
 });
 
