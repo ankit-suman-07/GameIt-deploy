@@ -4,11 +4,13 @@ nav {
 
 section {
     margin-top: 10px;
+    overflow: hidden;
 }
 
-main {
+.main-home {
     min-height: calc(100vh - 70px);
     margin-top: 30px;
+    overflow: hidden;
 }
 
 .slider-head {

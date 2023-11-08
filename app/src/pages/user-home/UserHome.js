@@ -51,7 +51,7 @@ const UserHome = () => {
                 <ImageSlider />
             </section>
 
-            <main>
+            <div className='main-home' >
                 <div className="slider-head">
                     Continue Playing
                 </div>
@@ -68,7 +68,7 @@ const UserHome = () => {
                 ))}
 
                 <PassPlans />
-            </main>
+            </div>
         </div>
     );
 }
