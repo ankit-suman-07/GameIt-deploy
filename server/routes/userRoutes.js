@@ -4,7 +4,7 @@ const User = require('../models/UserModel');
 
 const user_router = express.Router();
 
-// Route to save a book
+// Route to save a User
 user_router.post('/', async (request, response) => {
     try {
         const { name, email, password, usertype, profile, saved, playing, bought, likes, reviews, notifications, warnings, plan } = request.body;
@@ -110,46 +110,64 @@ user_router.get('/:email', async (request, response) => {
 });
 
 // Route to update a User
+// user_router.put('/:id', async (request, response) => {
+//     try {
+//         if (
+//             !request.body.name ||
+//             !request.body.email ||
+//             !request.body.password ||
+//             !request.body.type
+//         ) {
+//             return response.status(400).send({
+//                 message: 'Send all required fields: title, author, publishYear',
+//             });
+//         }
+
+//         const { id } = request.params;
+
+//         const result = await User.findByIdAndUpdate(id, request.body);
+
+//         if (!result) {
+//             return response.status(404).json({ message: 'User not found' });
+//         }
+
+//         return response.status(200).send({ message: 'User updated successfully' });
+
+//     } catch (error) {
+//         console.log(error.message);
+//         response.status(500).send({ message: error.message })
+//     }
+// });
+
+// Route to update a Game
 user_router.put('/:id', async (request, response) => {
     try {
-        if (
-            !request.body.name ||
-            !request.body.email ||
-            !request.body.password ||
-            !request.body.type
-        ) {
-            return response.status(400).send({
-                message: 'Send all required fields: title, author, publishYear',
-            });
-        }
-
         const { id } = request.params;
-
-        const result = await User.findByIdAndUpdate(id, request.body);
+        const updatedUser = request.body; // Assuming request body contains updated game data
+        const result = await User.findByIdAndUpdate(id, updatedUser, { new: true });
 
         if (!result) {
             return response.status(404).json({ message: 'User not found' });
         }
 
-        return response.status(200).send({ message: 'User updated successfully' });
-
+        return response.status(200).send(result);
     } catch (error) {
         console.log(error.message);
-        response.status(500).send({ message: error.message })
+        response.status(500).send({ message: error.message });
     }
 });
 
-// Route to delete a book
+// Route to delete a user
 user_router.delete('/:id', async (request, response) => {
     try {
         const { id } = request.params;
         const result = await User.findByIdAndDelete(id);
 
         if (!result) {
-            return response.status(400).json({ message: 'Book not found' });
+            return response.status(400).json({ message: 'User not found' });
         }
 
-        return response.status(200).send({ message: 'Book deleted successfully' });
+        return response.status(200).send({ message: 'User deleted successfully' });
 
     } catch (error) {
         console.log(error.message);

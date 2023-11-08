@@ -132,17 +132,17 @@ const StudioShowGame = () => {
                     </div>
                     {
                         game.reviews && Object.keys(game.reviews).map(reviewId => (
-                        <div key={reviewId} className='studioshowgame-review' >
-                            <div className='studioshowgame-review-id' >
-                                {reviewId}
-                            </div>
-                            {game.reviews[reviewId].map((comment, index) => (
-                                <div key={index} className='studioshowgame-review-text' >
-                                    {comment}
+                            <div key={reviewId} className='studioshowgame-review' >
+                                <div className='studioshowgame-review-id' >
+                                    {reviewId}
                                 </div>
-                            ))}
-                        </div>
-                    ))}
+                                {game.reviews[reviewId].map((comment, index) => (
+                                    <div key={index} className='studioshowgame-review-text' >
+                                        {comment}
+                                    </div>
+                                ))}
+                            </div>
+                        ))}
                 </div>
             </div>
         </div>

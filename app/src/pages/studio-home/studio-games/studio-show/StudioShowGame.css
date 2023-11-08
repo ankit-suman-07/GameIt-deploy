@@ -117,6 +117,9 @@
     border-radius: 2px;
 }
 
+.studioshowgame-info span:hover {
+    cursor: pointer;
+}
 .studioshowgame-info-multiple {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import StudioGamesCard from '../../studio-home/studio-games/StudioGamesCard';
 import { UserContext } from '../../../context/UserContext';
@@ -7,10 +7,7 @@ import Navbar from '../../../components/user-navbar/UserNav';
 import "./GenreGames.css";
 
 const GenreGames = () => {
-    const { user, allGenres, genreGamePage, setGenreGamePage } = useContext(UserContext);
-    const g = genreGamePage
-    console.log(g, "----", genreGamePage);
-    console.log(g, "----", allGenres[genreGamePage]);
+    const { user, allGenres, genreGamePage } = useContext(UserContext);
 
     const navigate = useNavigate();
 
