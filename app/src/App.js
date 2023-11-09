@@ -10,7 +10,6 @@ import HomeStudio from './pages/studio-home/HomeStudio';
 import UserHome from './pages/user-home/UserHome';
 import StudioShowGame from './pages/studio-home/studio-games/studio-show/StudioShowGame';
 import StudioCreateGame from './pages/studio-home/studio-games/studio-create/StudioCreateGame';
-import CreateUser from './CreateUser';
 import StudioEditGame from './pages/studio-home/studio-games/studio-edit/StudioEditGame';
 import SignUp from './pages/signup-page/SignUp';
 import Login from './pages/login-page/Login';
@@ -46,7 +45,6 @@ function App() {
           <Route path="/uploadvid" element={<UploadVid />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/abc" element={<CreateUser />} />
         </Routes>
       </Router>
     </UserProvider>
