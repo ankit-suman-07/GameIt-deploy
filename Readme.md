@@ -66,6 +66,7 @@ Table of Contents
 
    ```bash
    cd GameIt-deploy
+   cd app
 
 4. **Install Dependencies**
 
